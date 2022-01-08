@@ -19,5 +19,7 @@ git commit -m "Description on the change."<hr>
 git push -u origin branch-name<hr>
 #### Creating a pull request ####
 Manually select your pushed local branch and target remote branch (usually master) in the left hand side menu called "Pull requests"<hr>
+#### Merge the branch to master ####
+Once all reviewers approves the pull request, you can merge the branch to origin/master by clicking the "merge" button in your branch<hr>
 #### Reset to specific commit ####
 git reset --hard commit_hash<hr>
