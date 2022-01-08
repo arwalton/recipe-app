@@ -1,29 +1,23 @@
-# README #
-
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+# Group 42 Git Workspace #
+This is a git repository for the final app development.<hr>
+### Basic Git Commands ###
+#### Clone the master ####
+git clone https://kanglee8614@bitbucket.org/cm2020-agil-g4g0-ejs/cm2020-agil-g4g0-ejs.git<hr>
+#### Check the status of local repo ####
+git status<hr>
+#### Pull the updated master ####
+git checkout master<br>
+git pull<hr>
+#### Create a local branch ####
+git checkout master
+git checkout -b branch-name<hr>
+#### Add files to stage ####
+git add target_file_name<hr>
+#### Commit staged change ####
+git commit -m "Description on the change."<hr>
+#### Push the commit from local to remote ####
+git push -u origin branch-name<hr>
+#### Creating a pull request ####
+Manually select your pushed local branch and target remote branch (usually master) in the left hand side menu called "Pull requests"<hr>
+#### Reset to specific commit ####
+git reset --hard commit_hash<hr>
