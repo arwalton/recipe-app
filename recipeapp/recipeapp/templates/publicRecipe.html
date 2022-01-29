@@ -1,0 +1,21 @@
+{% extends "main.html" %} {% block content %} {% include "sidebar.html" %}
+<main role="main" class="col-md-9 col-lg-9 pt-3 px-3 kn-main">
+  <!-- Main section -->
+
+  <div class="blog-post">
+    <h3 class="article-title">
+      <span>{{recipe.title}}</span>
+    </h3>
+
+    <p>{{recipe.description}}
+    </p>
+    <button type="button" class="btn btn-secondary" 
+      id="article-preview-button"> Preview</button>
+    <a role="button" class="btn btn-secondary" 
+      href="{{url_for('showCategory', category_id=category.id)}}">Back to category</a>
+    <br>
+    <object class="article-preview" type="text/html" id="article-preview" 
+      data="{{recipe.link}}"></object>
+  </div>
+</main>
+{% endblock %}
