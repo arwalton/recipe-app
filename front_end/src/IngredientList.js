@@ -5,14 +5,18 @@ import Ingredient from "./Ingredient";
 class IngredientList extends React.Component{
 
     render(){
-        const ingredients = [];
+        const INGREDIENTS = [];
+        const FILTERTEXT = this.props.filterText;
 
         this.props.ingredients.forEach(ingredient =>{
+            if(ingredient.name.indexOf(FILTERTEXT) === -1){
+                return;
+            }
             if(ingredient.group === this.props.group){
-                ingredients.push(
+                INGREDIENTS.push(
                     <Ingredient
-                        name={ingredient.name}>
-                    </Ingredient>
+                        name={ingredient.name}
+                        key={ingredient.name} />
                 )
             }
         });
@@ -21,7 +25,7 @@ class IngredientList extends React.Component{
         <div className={"m-5"}>
             <h2 className={"group-title"}>{this.props.group}</h2>
             <div className={"buttons"}>
-                {ingredients}
+                {INGREDIENTS}
             </div>
         </div>
         );

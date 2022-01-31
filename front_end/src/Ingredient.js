@@ -7,7 +7,7 @@ class Ingredient extends React.Component{
 
     render(){
         return(
-            <button className={'ingredient button is-large tile is-child is-2'}>
+            <button className={'ingredient button is-large tile is-child'}>
                 {this.props.name}
             </button>
         );

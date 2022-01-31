@@ -6,16 +6,17 @@ import IngredientList from "./IngredientList"
 class IngredientGroupList extends React.Component{
 
     render(){
-        const groups = [];
+        const GROUPS = [];
         let lastGroup = null;
 
         this.props.ingredients.forEach(ingredient => {
             if(ingredient.group !== lastGroup){
-                groups.push(
+                GROUPS.push(
                     <IngredientList 
                         group={ingredient.group}
-                        ingredients={this.props.ingredients}>
-                    </IngredientList>
+                        ingredients={this.props.ingredients}
+                        filterText={this.props.filterText}
+                        key={ingredient.group} />
                 )
             }
             lastGroup = ingredient.group;
@@ -23,7 +24,7 @@ class IngredientGroupList extends React.Component{
 
         return(
             <div>
-                {groups}
+                {GROUPS}
             </div>
         );
     }

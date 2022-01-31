@@ -5,14 +5,6 @@ import FilterableIngredientsList from './FilterableIngredientsList';
 
 class App extends React.Component{
   
-  selections = [
-    {id: 1, name: "Carrots"},
-    {id: 2, name: "Lettuce"},
-    {id: 3, name: "Beef"},
-    {id: 4, name: "Eggs"},
-    {id: 5, name: "White Rice"}
-  ];
-
   ingredients = [
     {group: "Protein", name: "Chicken"},
     {group: "Protein", name: "Beef"},
