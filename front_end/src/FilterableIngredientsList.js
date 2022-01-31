@@ -1,22 +1,17 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import SelectedIngredientList from "./SelectedIngredientList";
-import IngredientList from "./IngredientList"
+import IngredientGroupList from "./IngredientGroupList";
 
+//App sends ingredients and selections as props in this static version
 class FilterableIngredientsList extends React.Component{
-    constructor(props){
-        super(props)
-    };
-    
+     
     render(){
         return(
             <div className={"filterable-ingredients-list"}>
                 <SearchBar></SearchBar>
                 <SelectedIngredientList selections={this.props.selections}></SelectedIngredientList>
-                <IngredientList group="Protein"></IngredientList>
-                <IngredientList group="Vegetables"></IngredientList>
-                <IngredientList group="Fruits"></IngredientList>
-                <IngredientList group="Carbs"></IngredientList>
+                <IngredientGroupList ingredients={this.props.ingredients}></IngredientGroupList>
             </div>
         );
     }
