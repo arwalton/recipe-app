@@ -31,7 +31,9 @@ class App extends React.Component{
   render(){
     return (
       <div className={"App"}>
-          <FilterableIngredientsList ingredients={this.ingredients} selections={this.selections}></FilterableIngredientsList>
+          <FilterableIngredientsList
+            ingredients={this.ingredients}
+            selections={this.selections} />
       </div>
     );
   }
