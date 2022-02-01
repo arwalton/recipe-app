@@ -16,7 +16,9 @@ class IngredientGroupList extends React.Component{
                         group={ingredient.group}
                         ingredients={this.props.ingredients}
                         filterText={this.props.filterText}
-                        key={ingredient.group} />
+                        key={ingredient.group}
+                        onIngredientChange={this.props.onIngredientChange}
+                        />
                 )
             }
             lastGroup = ingredient.group;

@@ -1,6 +1,14 @@
 import React from "react";
 
 class SearchBar extends React.Component{
+    constructor(props) {
+        super(props);
+        this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+    }
+
+    handleFilterTextChange(event) {
+    this.props.onFilterTextChange(event.target.value);
+    }
 
     render(){
         return(
@@ -12,7 +20,8 @@ class SearchBar extends React.Component{
                     type="text"
                     id="ingredient-search"
                     placeholder="Search for ingredients..."
-                    name="s"
+                    value={this.props.filterText}
+                    onChange={this.handleFilterTextChange}
                     className={"input is-large"}
                 />
             </form>

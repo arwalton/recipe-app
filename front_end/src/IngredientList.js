@@ -6,17 +6,20 @@ class IngredientList extends React.Component{
 
     render(){
         const INGREDIENTS = [];
-        const FILTERTEXT = this.props.filterText;
+        const FILTERTEXT = this.props.filterText.toLowerCase();
 
         this.props.ingredients.forEach(ingredient =>{
-            if(ingredient.name.indexOf(FILTERTEXT) === -1){
+            if(ingredient.name.toLowerCase().indexOf(FILTERTEXT) === -1){
                 return;
             }
             if(ingredient.group === this.props.group){
                 INGREDIENTS.push(
                     <Ingredient
                         name={ingredient.name}
-                        key={ingredient.name} />
+                        group={ingredient.group}
+                        id={ingredient.id}
+                        key={ingredient.id.toString()}
+                        onIngredientChange={this.props.onIngredientChange} />
                 )
             }
         });

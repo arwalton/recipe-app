@@ -8,16 +8,48 @@ class FilterableIngredientsList extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            //Make sure filterText handles cases
             filterText: "",
+            ingredientToChange: {},
             selectedIngredients: [
-                {id: 1, name: "Carrots"},
-                {id: 2, name: "Lettuce"},
-                {id: 3, name: "Beef"},
-                {id: 4, name: "Eggs"},
-                {id: 5, name: "White Rice"}
             ]
-        }
+        };
+
+        this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+        this.handleSelectedIngredientsChange = this.handleSelectedIngredientsChange.bind(this);
+    }
+
+    handleFilterTextChange(filterText){
+        this.setState({
+            filterText: filterText
+        });
+    }
+
+    //ingredient is an object that has an id , a group, and a name
+    handleSelectedIngredientsChange(ingredientToChange){
+        this.ids = [];
+        this.state.selectedIngredients.forEach(ingredient => {
+            this.ids.push(ingredient.id);
+        });
+
+        if(this.ids.indexOf(ingredientToChange.id) === -1){
+            this.setState(state => {
+                const selectedIngredients = [...state.selectedIngredients, ingredientToChange];
+
+                return {
+                    selectedIngredients,
+                };
+            });
+        }else{
+            this.setState(state =>{
+                const selectedIngredients = state.selectedIngredients.filter((ingredient) => {
+                    return ingredient.id !== ingredientToChange.id
+                });
+
+                return{
+                    selectedIngredients,
+                };
+            });
+        };
     }
      
     render(){
@@ -25,6 +57,7 @@ class FilterableIngredientsList extends React.Component{
             <div className={"filterable-ingredients-list"}>
                 <SearchBar
                     filterText={this.state.filterText}
+                    onFilterTextChange={this.handleFilterTextChange}
                 />
                 <SelectedIngredientList
                     selections={this.state.selectedIngredients}
@@ -32,6 +65,7 @@ class FilterableIngredientsList extends React.Component{
                 <IngredientGroupList
                     ingredients={this.props.ingredients}
                     filterText={this.state.filterText}
+                    onIngredientChange={this.handleSelectedIngredientsChange}
                 />
             </div>
         );
