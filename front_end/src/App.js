@@ -26,6 +26,7 @@ class App extends React.Component{
     {id: 18, group: "Spices", name: "Sage"},
     {id: 19, group: "Bread, Rice, and Grains", name: "White Rice"},
     {id: 20, group: "Bread, Rice, and Grains", name: "Wheat Bread"},
+    {id: 21, group: "Bread, Rice, and Grains", name: "Spaghetti"},
   ]
 
   render(){
