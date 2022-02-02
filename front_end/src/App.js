@@ -1,7 +1,6 @@
 import 'bulma/css/bulma.min.css';
 import React from 'react';
-import FilterableIngredientsList from './FilterableIngredientsList';
-
+import { Outlet, Link } from 'react-router-dom';
 
 class App extends React.Component{
   
@@ -32,9 +31,11 @@ class App extends React.Component{
   render(){
     return (
       <div className={"App"}>
-          <FilterableIngredientsList
-            ingredients={this.ingredients}
-            selections={this.selections} />
+          <nav>
+            <Link reloadDocument to="/ingredients">Start over</Link> |{" "}
+            <Link to="/results">Get results</Link>
+          </nav>
+          <Outlet context={this.ingredients}/>
       </div>
     );
   }

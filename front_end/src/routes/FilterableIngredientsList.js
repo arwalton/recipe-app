@@ -1,7 +1,7 @@
 import React from "react";
-import SearchBar from "./SearchBar";
-import SelectedIngredientList from "./SelectedIngredientList";
-import IngredientGroupList from "./IngredientGroupList";
+import SearchBar from "../SearchBar";
+import SelectedIngredientList from "../SelectedIngredientList";
+import IngredientGroupList from "../IngredientGroupList";
 
 //App sends ingredients as a prop
 class FilterableIngredientsList extends React.Component{
