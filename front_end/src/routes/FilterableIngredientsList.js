@@ -61,6 +61,7 @@ class FilterableIngredientsList extends React.Component{
                 />
                 <SelectedIngredientList
                     selections={this.state.selectedIngredients}
+                    onIngredientChange={this.handleSelectedIngredientsChange}
                 />
                 <IngredientGroupList
                     ingredients={this.props.ingredients}

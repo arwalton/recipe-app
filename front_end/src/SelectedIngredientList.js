@@ -1,15 +1,20 @@
 import React from "react";
+import Ingredient from "./Ingredient"
 
+//Takes selections and onIngredientChange as props
 class SelectedIngredientList extends React.Component{
 
     render(){
         return(
             <div>
-                <ul>
-                    {this.props.selections.map((selection) => (
-                        <li key={selection.id.toString()}>{selection.name}</li>
-                    ))}
-                </ul>
+                  {this.props.selections.map((selection) => (
+                    <Ingredient
+                        name={selection.name}
+                        group={selection.group}
+                        id={selection.id}
+                        onIngredientChange={this.props.onIngredientChange}
+                        />
+                  ))}
             </div>
         );
     }

@@ -1,5 +1,6 @@
 import React from "react";
 
+//Takes name, group, id, key (if in a list), and onIngredientChange as props
 class Ingredient extends React.Component{
     constructor(props){
         super(props);
