@@ -1,0 +1,2 @@
+Hi all, this is for sample PR (pull request).
+Please review and either make comments, approve or don't approve.
