@@ -9,7 +9,7 @@ class IngredientGroupList extends React.Component{
         const GROUPS = [];
         let lastGroup = null;
 
-        this.props.ingredients.forEach(ingredient => {
+        for(const ingredient of this.props.ingredients){
             if(ingredient.group !== lastGroup){
                 GROUPS.push(
                     <IngredientList 
@@ -22,7 +22,7 @@ class IngredientGroupList extends React.Component{
                 )
             }
             lastGroup = ingredient.group;
-        });
+        };
 
         return(
             <div>
