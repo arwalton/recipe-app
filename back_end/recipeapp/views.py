@@ -28,12 +28,14 @@ session = DBSession()
 
 app = Flask(__name__, static_folder='static')
 
+
 # Main page
 @app.route('/')
 @app.route('/categories/')
 def showCategories():
     categories = session.query(Category).order_by(Category.name)
     return render_template('categories.html', categories=categories)
+
 
 # Show all categories
 @app.route('/categories/<int:category_id>/')
@@ -42,6 +44,7 @@ def showCategory(category_id):
     categories = session.query(Category).order_by(Category.name)
 
     return render_template('category.html', category=category, categories=categories, category_id=category.id)
+
 
 # Create new category
 @app.route('/category/new/', methods=['GET', 'POST'])
@@ -54,6 +57,7 @@ def newCategory():
     else:
         categories = session.query(Category).order_by(Category.name)
         return render_template('newCategory.html', categories=categories)
+
 
 # Edit category
 @app.route('/categories/<int:category_id>/edit/', methods=['GET', 'POST'])
@@ -68,7 +72,7 @@ def editCategory(category_id):
             return redirect(url_for('showCategory', category_id=edited_category.id))
     else:
         return render_template('editCategory.html', categories=categories,
-                               category=edited_category)
+            category=edited_category)
 
 
 # Delete category
@@ -84,7 +88,7 @@ def deleteCategory(category_id):
         return redirect(url_for('showCategories'))
     else:
         return render_template('deleteCategory.html', categories=categories,
-                               category=category_to_delete)
+            category=category_to_delete)
 
 
 # Create new recipe
@@ -92,8 +96,8 @@ def deleteCategory(category_id):
 def newRecipe(recipe_id):
     if request.method == 'POST':
         new_recipe = Recipe(title=request.form['name'],
-                              description=request.form['description'],
-                              category_id=category_id)
+            description=request.form['description'],
+            category_id=category_id)
         session.add(new_recipe)
         session.commit()
         # TODO: flash message on success?
@@ -101,7 +105,7 @@ def newRecipe(recipe_id):
     else:
         categories = session.query(Category).order_by(Category.name)
         return render_template('newRecipe.html', categories=categories,
-                               category_id=category_id)
+            category_id=category_id)
 
 
 # Article page
@@ -112,19 +116,17 @@ def showRecipe(category_id, recipe_id):
     recipe = session.query(Recipe).filter_by(id=recipe_id).one()
 
     return render_template('publicRecipe.html', recipe=recipe,
-                               category=category, categories=categories)
+        category=category, categories=categories)
 
 
 # Edit recipe
 @app.route('/categories/<int:category_id>/recipe/<int:recipe_id>/edit/',
-           methods=['GET', 'POST'])
+    methods=['GET', 'POST'])
 def editArticle(category_id, recipe_id):
-
     edited_recipe = session.query(Recipe).filter_by(id=recipe_id).one()
     categories = session.query(Category).order_by(Category.name)
     category = session.query(Category).filter_by(id=category_id).one()
     # check if user if allowed to modify the article
-    
 
     if request.method == 'POST':
         if request.form['title']:
@@ -132,10 +134,11 @@ def editArticle(category_id, recipe_id):
         if request.form['description']:
             edited_recipe.description = request.form['description']
         return redirect(url_for('showRecipe', category_id=category.id,
-                        recipe_id=edited_recipe.id))
+            recipe_id=edited_recipe.id))
     else:
         return render_template('editRecipe.html', category_id=category.id,
-                               categories=categories, article=edited_recipe)
+            categories=categories, article=edited_recipe)
+
 
 '''
 # Delete article
