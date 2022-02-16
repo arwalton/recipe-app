@@ -39,34 +39,50 @@ def categoriesJSON():
 @app.route('/foodgroups/JSON')
 def foodgroupsJSON():
     foodgroups = session.query(FoodGroup).all()
-    return jsonify(FoodGroup=[i.serialize for i in foodgroups])
+    return jsonify(FoodGroups=[i.serialize for i in foodgroups])
 
 # List of ingredients
 @app.route('/ingredients/JSON')
 def ingredientsJSON():
     ingredients = session.query(Ingredient).all()
-    return jsonify(Ingredient=[i.serialize for i in ingredients])
+    return jsonify(Ingredients=[i.serialize for i in ingredients])
+
+# List of ingredients in foodgroup by id
+@app.route('/foodgroup/<int:foodgroup_id>/ingredients/JSON')
+def ingredientsInFoodgroupJSON(foodgroup_id):
+    ingredients = session.query(Ingredient).filter(Ingredient.foodgroups.any(id=foodgroup_id)).all()
+    return jsonify(Ingredients=[i.serialize for i in ingredients])
+
+# List of ingredients in recipe by id
+@app.route('/recipes/<int:recipe_id>/ingredients/JSON')
+def ingredientsInRecipeJSON(recipe_id):
+    ingredients = session.query(Ingredient).filter(Ingredient.recipes.any(id=recipe_id)).all()
+    return jsonify(Ingredients=[i.serialize for i in ingredients])
 
 # List of recipes
 @app.route('/recipes/JSON')
 def recipesJSON():
     recipes = session.query(Recipe).all()
-    return jsonify(Recipe=[i.serialize for i in recipes])
-
-# List of recipes in category (JSON)
-@app.route('/categories/<int:category_id>/recipes/JSON')
-def recipesInCategoryJSON(category_id):
-    recipes = session.query(Recipe).filter_by(category_id=category_id).all()
     return jsonify(Recipes=[i.serialize for i in recipes])
 
+@app.route('/recipes/JSON')
+def testJSON():
+    recipes = session.query(Recipe).all()
+    return jsonify(Recipes=[i.serialize for i in recipes])
+
+# List of recipes in category by id
+@app.route('/categories/<int:category_id>/recipes/JSON')
+def recipesInCategoryJSON(category_id):
+    recipes = session.query(Recipe).filter(Recipe.categories.any(id=category_id)).all()
+    return jsonify(Recipes=[i.serialize for i in recipes])
 
 # Recipe (JSON)
-@app.route('/categories/<int:category_id>/recipes/<int:recipe_id>/JSON')
-def recipeJSON(category_id, recipe_id):
+@app.route('/recipes/<int:recipe_id>/JSON')
+def recipeJSON(recipe_id):
     recipe = session.query(Recipe).filter_by(id=recipe_id).one()
-    return jsonify(Recipe=recipe.serialize)
+    return jsonify(Recipe=[i.serialize for i in recipe])
 
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='0.0.0.0', port=5004)
+    app.run(host='0.0.0.0', port=5007)
