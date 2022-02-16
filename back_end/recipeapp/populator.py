@@ -28,11 +28,14 @@ data = json.load(f)
 
 # set of ingredients (no repetitions)
 ingredients_set = set()
+foodgroup_set = set()
+category_set = set()
 placeholder_url = "url"
 
 # add categories to db
 print('adding categories...')
 for category in data["categories"]:
+    category_set.add(category["name"])
     newCategory = Category(name=category["name"], picture=category["picture"])
     session.add(newCategory)
     session.commit()
@@ -47,6 +50,7 @@ print()
 # add food groups to db
 print('adding foodgroups...')
 for food_group in data["food_groups"]:
+    foodgroup_set.add(food_group["name"])
     newFoodGroup = FoodGroup(name=food_group["name"], picture=food_group["picture"])
     session.add(newFoodGroup)
     session.commit()
@@ -70,6 +74,10 @@ for recipe in data["recipes"]:
     session.commit()
 
     for categoryName in recipe["categories"]:
+        if categoryName not in category_set:
+            newCategory = Category(name=categoryName, picture=placeholder_url)
+            session.add(newCategory)
+            session.commit()
         category = session.query(Category).filter_by(name=categoryName).one()
         category.recipes.append(new_recipe)
         new_recipe.categories.append(category)
@@ -92,6 +100,10 @@ for recipe in data["recipes"]:
         ingredientInDb.recipes.append(new_recipe)
         new_recipe.ingredients.append(ingredientInDb)
         session.commit()
+        if ingredient["food_group"] not in foodgroup_set:
+            newFoodGroup = FoodGroup(name=ingredient["food_group"], picture=placeholder_url)
+            session.add(newFoodGroup)
+            session.commit()
         current_food_group = session.query(FoodGroup).filter_by(name=ingredient["food_group"]).one()
         ingredientInDb.foodgroups.append(current_food_group)
         current_food_group.ingredients.append(ingredientInDb)
