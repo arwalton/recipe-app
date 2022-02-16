@@ -1,0 +1,146 @@
+{
+    "categories": [
+        {
+            "name": "category_name_1",
+            "picture": "url"
+        },
+        {
+            "name": "category_name_2",
+            "picture": "url"
+        },
+        {
+            "name": "category_name_3",
+            "picture": "url"
+        },
+        {
+            "name": "category_name_4",
+            "picture": "url"
+        },
+        {
+            "name": "category_name_5",
+            "picture": "url"
+        }
+    ],
+    "food_groups": [
+        {
+            "name": "group_name_1",
+            "picture": "url"
+        },
+        {
+            "name": "group_name_2",
+            "picture": "url"
+        },
+        {
+            "name": "group_name_3",
+            "picture": "url"
+        },
+        {
+            "name": "group_name_4",
+            "picture": "url"
+        },
+        {
+            "name": "group_name_5",
+            "picture": "url"
+        }
+    ],
+    "substitutes": [
+        {
+            "i1": "ingredient_1",
+            "i2": "ingredient_2"
+        },
+        {
+            "i1": "ingredient_2",
+            "i2": "ingredient_5"
+        },
+        {
+            "i1": "ingredient_2",
+            "i2": "ingredient_3"
+        },
+        {
+            "i1": "ingredient_3",
+            "i2": "ingredient_1"
+        },
+        {
+            "i1": "ingredient_2",
+            "i2": "ingredient_1"
+        },
+        {
+            "i1": "ingredient_4",
+            "i2": "ingredient_5"
+        }
+    ],
+    "recipes": [
+        {
+            "name": "recipe1",
+            "picture": "url",
+            "description": "description",
+            "author": "AU",
+            "categories": [ "category_name_3", "category_name_5" ],
+            "ingredients": [
+                {
+                    "name": "ingredient_1",
+                    "food_group": "group_name_1",
+                    "picture": "url"
+                },
+                {
+                    "name": "ingredient_2",
+                    "food_group": "group_name_3",
+                    "picture": "url"
+                },
+                {
+                    "name": "ingredient_6",
+                    "food_group": "group_name_1",
+                    "picture": "url"
+                }
+            ]
+        },
+        {
+            "name": "recipe2",
+            "picture": "url",
+            "description": "description",
+            "author": "AU",
+            "categories": [ "category_name_4"],
+            "ingredients": [
+                {
+                    "name": "ingredient_2",
+                    "food_group": "group_name_3",
+                    "picture": "url"
+                },
+                {
+                    "name": "ingredient_1",
+                    "food_group": "group_name_1",
+                    "picture": "url"
+                }
+            ]
+        },
+        {
+            "name": "recipe3",
+            "picture": "url",
+            "description": "description",
+            "author": "AU",
+            "categories": [ "category_name_1", "category_name_3" ],
+            "ingredients": [
+                {
+                    "name": "ingredient_3",
+                    "food_group": "group_name_2",
+                    "picture": "url"
+                },
+                {
+                    "name": "ingredient_1",
+                    "food_group": "group_name_1",
+                    "picture": "url"
+                },
+                {
+                    "name": "ingredient_5",
+                    "food_group": "group_name_2",
+                    "picture": "url"
+                },
+                {
+                    "name": "ingredient_6",
+                    "food_group": "group_name_1",
+                    "picture": "url"
+                }
+            ]
+        }
+    ]
+}

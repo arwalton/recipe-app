@@ -49,8 +49,6 @@ class Recipe(Base):
             'picture': self.picture,
             'description': self.description,
             'author': self.author,
-            'ingredients': self.ingredients,
-            'categories': self.categories,
             'id': self.id,
         }
 
@@ -70,7 +68,6 @@ class Category(Base):
         return {
             'name': self.name,
             'picture': self.picture,
-            'recipes': self.recipes,
             'id': self.id,
         }
 
@@ -93,9 +90,6 @@ class Ingredient(Base):
         return {
             'name': self.name,
             'picture': self.picture,
-            'recipes': self.recipes,
-            'foodgroups': self.foodgroups,
-            'substitutes': self.substitutes,
             'id': self.id,
         }
 
@@ -114,7 +108,6 @@ class FoodGroup(Base):
         return {
             'name': self.name,
             'picture': self.picture,
-            'ingredients': self.ingredients,
             'id': self.id,
         }
 
