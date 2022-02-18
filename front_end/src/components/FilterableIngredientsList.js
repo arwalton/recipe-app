@@ -1,9 +1,12 @@
 import React from "react";
-import SearchBar from "../SearchBar";
-import SelectedIngredientList from "../SelectedIngredientList";
-import IngredientGroupList from "../IngredientGroupList";
+import SearchBar from "./SearchBar";
+import SelectedIngredientList from "./SelectedIngredientList";
+import IngredientGroupList from "./IngredientGroupList";
+import { Link } from "react-router-dom";
+import '../styles/style.css';
 
-//App sends ingredients as a prop
+
+//App sends ingredients as a prop through IngredientsPage
 class FilterableIngredientsList extends React.Component{
     constructor(props){
         super(props);
@@ -55,10 +58,27 @@ class FilterableIngredientsList extends React.Component{
     render(){
         return(
             <div className={"filterable-ingredients-list"}>
+                <h1 className={"main-text"}>
+                    What Do you want to cook today?
+                </h1>
                 <SearchBar
                     filterText={this.state.filterText}
                     onFilterTextChange={this.handleFilterTextChange}
                 />
+                <nav>
+                    <Link reloadDocument to="/ingredients"
+                          className={"button is-large is-outlined " +
+                                     "has-background-success-dark " +
+                                     "has-text-white-ter"}>
+                              Start over
+                    </Link> |{" "}
+                    <Link to="/results"
+                          className={"button is-large is-outlined " +
+                          "has-background-success-dark " +
+                          "has-text-white-ter"}>
+                              Get results
+                    </Link>
+                </nav>
                 <SelectedIngredientList
                     selections={this.state.selectedIngredients}
                     onIngredientChange={this.handleSelectedIngredientsChange}

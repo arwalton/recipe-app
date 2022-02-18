@@ -1,0 +1,46 @@
+.App {
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url('../img/shrimp_dinner.jpg');
+      background-size: cover;
+}
+
+.filterable-ingredients-list {
+    padding-top: 300px;
+}
+
+nav {
+    text-align: center;
+    margin-top: 10px;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+
+.main-text {
+    font-size: 3rem;
+    text-align: center;
+    color: hsla(0, 0%, 80%, 1);
+}
+
+.search-bar {
+    margin-right: 24px;
+    margin-left: 24px;
+}
+
+.selected-ingredient-list {
+    margin: 20px;
+}

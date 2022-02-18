@@ -1,5 +1,6 @@
 import React from "react";
 import Ingredient from "./Ingredient";
+import '../styles/style.css';
 
 //IngredientsGroupList sends group and ingredients as a prop
 class IngredientList extends React.Component{
@@ -19,15 +20,17 @@ class IngredientList extends React.Component{
                         group={ingredient.group}
                         id={ingredient.id}
                         key={ingredient.id.toString()}
-                        onIngredientChange={this.props.onIngredientChange} />
+                        onIngredientChange={this.props.onIngredientChange}
+                        cName="is-medium is-child is-primary is-light is-outlined"
+                        icon="" />
                 )
             }
         });
 
         return(
-        <div className={"m-5"}>
-            <h2 className={"group-title"}>{this.props.group}</h2>
-            <div className={"buttons"}>
+        <div className={"card m-5"}>
+            <h2 className={"card-header is-size-3 pl-2"}>{this.props.group}</h2>
+            <div className={"card-content buttons"}>
                 {INGREDIENTS}
             </div>
         </div>

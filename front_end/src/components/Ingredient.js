@@ -1,10 +1,12 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import '../styles/style.css';
 
 //Takes name, group, id, key (if in a list), and onIngredientChange as props
 class Ingredient extends React.Component{
     constructor(props){
-        super(props);
-
+        super(props)
+        
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -18,12 +20,19 @@ class Ingredient extends React.Component{
         this.props.onIngredientChange(this.ingredientToChange);
     }
 
+
     render(){
+        let extra = "";
+        if(this.props.extra){
+            extra = this.props.extra;
+        }
         return(
             <button 
-                className={'ingredient button is-large tile is-child'}
+                className={'ingredient button ' + this.props.cName }
                 onClick={this.handleClick}>
-                {this.props.name}
+                <span>
+                {this.props.name + extra}
+                </span>    
             </button>
         );
     }
