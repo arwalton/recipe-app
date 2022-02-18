@@ -1,6 +1,7 @@
 import 'bulma/css/bulma.min.css';
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import '../styles/style.css';
 
 class App extends React.Component{
   
@@ -119,13 +120,15 @@ class App extends React.Component{
   render(){
 
     return (
-      <div className={"App"}>
+    <div className={"App"}>
+      {/* 
           <nav>
             <Link reloadDocument to="/ingredients">Start over</Link> |{" "}
             <Link to="/results">Get results</Link>
           </nav>
+      */}
           <Outlet context={this.response.ingredients}/>
-      </div>
+    </div>
     );
   }
 }

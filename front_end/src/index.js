@@ -6,11 +6,12 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
-import './index.css';
-import App from './App';
+import './styles/style.css';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import ResultsList from "./routes/ResultsList";
 import IngredientsPage from "./routes/IngredientsPage";
+import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 ReactDOM.render(
   <React.StrictMode>

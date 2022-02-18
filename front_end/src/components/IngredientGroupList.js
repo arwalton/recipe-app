@@ -1,5 +1,7 @@
 import React from "react";
-import IngredientList from "./IngredientList"
+import IngredientList from "./IngredientList";
+import '../styles/style.css';
+
 
 //FilterableIngredientsList sends ingredients as a prop
 

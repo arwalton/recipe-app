@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/style.css';
 
 class SearchBar extends React.Component{
     constructor(props) {
@@ -12,7 +13,10 @@ class SearchBar extends React.Component{
 
     render(){
         return(
-            <form action="/" method="get">
+            <form action="/"
+                  className={"search-bar"}
+                  method="get"
+                  style={{marginTop: '50px'}}>
                 <label htmlFor="ingredient-search" className={"is-sr-only"}>
                     Search for ingredients...
                 </label>
