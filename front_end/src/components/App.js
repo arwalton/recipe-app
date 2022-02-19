@@ -121,12 +121,6 @@ class App extends React.Component{
 
     return (
     <div className={"App"}>
-      {/* 
-          <nav>
-            <Link reloadDocument to="/ingredients">Start over</Link> |{" "}
-            <Link to="/results">Get results</Link>
-          </nav>
-      */}
           <Outlet context={this.response.ingredients}/>
     </div>
     );
