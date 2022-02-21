@@ -2,7 +2,10 @@ import React from "react";
 import Ingredient from "./Ingredient";
 import '../styles/style.css';
 
-//Takes selections and onIngredientChange as props
+/**
+ * @param selections - An array of ingredient objects representing selected ingredients
+ * @param onIngredientChange - A function that is called when an ingredient is selected or deselected
+ */
 class SelectedIngredientList extends React.Component{
 
     render(){

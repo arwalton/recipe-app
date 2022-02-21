@@ -1,6 +1,10 @@
 import React from "react";
 import '../styles/style.css';
 
+/**
+ * @param filterText - A string representing the text to filter ingredients with
+ * @param onFilterTextChange - A function to handle text entered into the search bar
+ */
 class SearchBar extends React.Component{
     constructor(props) {
         super(props);

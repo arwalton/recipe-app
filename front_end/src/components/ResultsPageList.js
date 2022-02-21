@@ -57,10 +57,9 @@ class ResultsPageList extends React.Component{
 
     render(){
         return(
-            <div>
-                <h1 className={`has-text-white`}>
-                    This is the ResultsPageList.
-                </h1>
+            <div className={"has-text-white"}>
+                <h1>This is the ResultsPageList.</h1>
+                <h1>It holds recipe components.</h1>
 
                 <Recipe recipe={this.response.recipes[0]}/>
                 <Recipe recipe={this.response.recipes[1]}/>

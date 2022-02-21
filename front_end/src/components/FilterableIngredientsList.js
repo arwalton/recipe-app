@@ -7,14 +7,16 @@ import '../styles/style.css';
 
 
 //App sends ingredients as a prop through IngredientsPage
+/**
+ * @param ingredients - An array of ingredient objects
+ */
 class FilterableIngredientsList extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             filterText: "",
             ingredientToChange: {},
-            selectedIngredients: [
-            ]
+            selectedIngredients:[]
         };
 
         this.handleFilterTextChange = this.handleFilterTextChange.bind(this);

@@ -3,6 +3,12 @@ import Ingredient from "./Ingredient";
 import '../styles/style.css';
 
 //IngredientsGroupList sends group and ingredients as a prop
+/**
+ * @param group - A string representing the ingredient group
+ * @param ingredients - An array of ingredient objects
+ * @param filterText - A string of text used to filter ingredients
+ * @param onIngredientChange - A function to pass to the Ingredient components
+ */
 class IngredientList extends React.Component{
 
     render(){
