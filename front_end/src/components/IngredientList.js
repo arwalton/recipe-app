@@ -3,6 +3,12 @@ import Ingredient from "./Ingredient";
 import '../styles/style.css';
 
 //IngredientsGroupList sends group and ingredients as a prop
+/**
+ * @param group - A string representing the ingredient group
+ * @param ingredients - An array of ingredient objects
+ * @param filterText - A string of text used to filter ingredients
+ * @param onIngredientChange - A function to pass to the Ingredient components
+ */
 class IngredientList extends React.Component{
 
     render(){
@@ -13,7 +19,7 @@ class IngredientList extends React.Component{
             if(ingredient.name.toLowerCase().indexOf(FILTERTEXT) === -1){
                 return;
             }
-            if(ingredient.group === this.props.group){
+            if(ingredient.group === this.props.group || this.props.group === "Ingredients:"){
                 INGREDIENTS.push(
                     <Ingredient
                         name={ingredient.name}
