@@ -19,7 +19,7 @@ class IngredientList extends React.Component{
             if(ingredient.name.toLowerCase().indexOf(FILTERTEXT) === -1){
                 return;
             }
-            if(ingredient.group === this.props.group){
+            if(ingredient.group === this.props.group || this.props.group === "Ingredients:"){
                 INGREDIENTS.push(
                     <Ingredient
                         name={ingredient.name}
