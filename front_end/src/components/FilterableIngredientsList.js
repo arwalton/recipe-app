@@ -4,23 +4,104 @@ import SelectedIngredientList from "./SelectedIngredientList";
 import IngredientGroupList from "./IngredientGroupList";
 import { Link } from "react-router-dom";
 import '../styles/style.css';
+import recipeStore from "../stores/RecipeStore";
 
 
 //App sends ingredients as a prop through IngredientsPage
 /**
  * @param ingredients - An array of ingredient objects
  */
+
 class FilterableIngredientsList extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             filterText: "",
             ingredientToChange: {},
-            selectedIngredients:[]
+            selectedIngredients:[],
+            ingredients: [{"id": 0,
+                           "group": "Loading...",
+                           "name": "Loading..."}]
         };
 
         this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
         this.handleSelectedIngredientsChange = this.handleSelectedIngredientsChange.bind(this);
+    }
+
+//This a temporary stand-in for a server call
+    text = `{
+        "ingredients": [
+          {
+            "id": 1,
+            "group": "Protein",
+            "name": "Chicken"
+          },
+          {
+            "id": 3,
+            "group": "Protein",
+            "name": "Pork"
+          },
+          {
+            "id": 5,
+            "group": "Protein",
+            "name": "Eggs"
+          },
+          {
+            "id": 7,
+            "group": "Vegetable",
+            "name": "Kale"
+          },
+          {
+            "id": 9,
+            "group": "Vegetable",
+            "name": "Carrots"
+          },
+          {
+            "id": 12,
+            "group": "Fruit",
+            "name": "Mangos"
+          },
+          {
+            "id": 15,
+            "group": "Spices",
+            "name": "Garam Masala"
+          },
+          {
+            "id": 16,
+            "group": "Spices",
+            "name": "Basil"
+          },
+          {
+            "id": 17,
+            "group": "Spices",
+            "name": "Cayenne Pepper"
+          },
+          {
+            "id": 19,
+            "group": "Bread, Rice, and Grains",
+            "name": "White Rice"
+          },
+          {
+            "id": 21,
+            "group": "Bread, Rice, and Grains",
+            "name": "Spaghetti"
+          }
+        ]
+      }`
+    
+      response = JSON.parse(this.text)
+
+    componentDidMount(){
+        this.removeIngredientListener = recipeStore.addIngredientListener((state) => {
+            this.setState(state);
+        });
+        this.setState({ingredients :recipeStore.getIngredients()});
+        this.response = JSON.parse(this.text);
+        recipeStore.setIngredients(this.response);
+    }
+
+    componentWillUnmount(){
+        this.removeIngredientListener();
     }
 
     handleFilterTextChange(filterText){
@@ -86,7 +167,7 @@ class FilterableIngredientsList extends React.Component{
                     onIngredientChange={this.handleSelectedIngredientsChange}
                 />
                 <IngredientGroupList
-                    ingredients={this.props.ingredients}
+                    ingredients={this.state.ingredients}
                     filterText={this.state.filterText}
                     onIngredientChange={this.handleSelectedIngredientsChange}
                 />
