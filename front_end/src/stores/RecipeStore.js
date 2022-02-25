@@ -35,6 +35,14 @@ class RecipeStore{
     //Selected Ingredients
     addSelectedIngredientListener (listener) {
         this.selectedIngredientListeners.push(listener);
+        const removeListener = () => {
+            this.selectedIngredientListeners  = this.selectedIngredientListeners.filter((l) => listener !== l );
+        }
+        return removeListener; 
+    }
+
+    addSelectedIngredient(ingredient){
+
     }
 
     setSelectedIngredients (state) {
@@ -51,6 +59,10 @@ class RecipeStore{
     //Recipes
     addRecipeListener (listener){
         this.recipeListeners.push(listener);
+        const removeListener = () => {
+            this.recipeListeners  = this.recipeListeners.filter((l) => listener !== l );
+        }
+        return removeListener; 
     }
 
     setRecipes (state) {
@@ -67,6 +79,10 @@ class RecipeStore{
     //IngredientToSubstitute
     addIngredientToSubstituteListener(listener){
         this.ingredientSubstitutionsListeners.push(listener);
+        const removeListener = () => {
+            this.ingredientToSubstituteListeners  = this.ingredientToSubstituteListeners.filter((l) => listener !== l );
+        }
+        return removeListener; 
     }
 
     setIngredientToSubstitute(state){
@@ -80,8 +96,13 @@ class RecipeStore{
         return this.state.ingredientToSubstitute;
     }
 
+    //Ingredient Substitutions
     addIngredientSubstitutionsListener(listener){
         this.ingredientSubstitutionsListeners.push(listener);
+        const removeListener = () => {
+            this.ingredientSubstitutionsListeners  = this.ingredientSubstitutionsListeners.filter((l) => listener !== l );
+        }
+        return removeListener; 
     }
 
     setIngredientSubstitutions(state){
@@ -95,8 +116,13 @@ class RecipeStore{
         return this.state.ingredientSubstitutions;
     }
 
+    //Filter text 
     addFilterTextListener(listener){
         this.filterTextListeners.push(listener);
+        const removeListener = () => {
+            this.filterTextListeners  = this.filterTextListeners.filter((l) => listener !== l );
+        }
+        return removeListener; 
     }
 
     setFilterText(state){
@@ -111,5 +137,5 @@ class RecipeStore{
     }
 }
 
-const recipeStore = new RecipeStore({});
+const recipeStore = new RecipeStore({filterText: ""});
 export default recipeStore;

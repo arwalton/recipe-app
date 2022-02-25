@@ -1,10 +1,8 @@
 import React from "react";
+import recipeStore from "../stores/RecipeStore";
+import RecipeStort from "../stores/RecipeStore";
 import '../styles/style.css';
 
-/**
- * @param filterText - A string representing the text to filter ingredients with
- * @param onFilterTextChange - A function to handle text entered into the search bar
- */
 class SearchBar extends React.Component{
     constructor(props) {
         super(props);
@@ -12,7 +10,8 @@ class SearchBar extends React.Component{
     }
 
     handleFilterTextChange(event) {
-    this.props.onFilterTextChange(event.target.value);
+    //this.props.onFilterTextChange(event.target.value);
+    recipeStore.setFilterText(event.target.value);
     }
 
     render(){
@@ -28,7 +27,7 @@ class SearchBar extends React.Component{
                     type="text"
                     id="ingredient-search"
                     placeholder="Search for ingredients..."
-                    value={this.props.filterText}
+                    valueo={recipeStore.getFilterText()}
                     onChange={this.handleFilterTextChange}
                     className={"input is-large"}
                 />

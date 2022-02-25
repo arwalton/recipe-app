@@ -19,9 +19,7 @@ class FilterableIngredientsList extends React.Component{
             filterText: "",
             ingredientToChange: {},
             selectedIngredients:[],
-            ingredients: [{"id": 0,
-                           "group": "Loading...",
-                           "name": "Loading..."}]
+            ingredients: []
         };
 
         this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
@@ -92,16 +90,24 @@ class FilterableIngredientsList extends React.Component{
       response = JSON.parse(this.text)
 
     componentDidMount(){
+        //Ingredients
         this.removeIngredientListener = recipeStore.addIngredientListener((state) => {
             this.setState(state);
         });
-        this.setState({ingredients :recipeStore.getIngredients()});
+        this.setState({ingredients: recipeStore.getIngredients()});
+        //This is where the first call to the server will be
         this.response = JSON.parse(this.text);
         recipeStore.setIngredients(this.response);
+
+        //Filter text
+        this.removeFilterTextListener = recipeStore.addFilterTextListener((state) => {
+            this.setState({filterText: state});
+        })
     }
 
     componentWillUnmount(){
         this.removeIngredientListener();
+        this.removeFilterTextListener();
     }
 
     handleFilterTextChange(filterText){
@@ -144,10 +150,7 @@ class FilterableIngredientsList extends React.Component{
                 <h1 className={"main-text"}>
                     What Do you want to cook today?
                 </h1>
-                <SearchBar
-                    filterText={this.state.filterText}
-                    onFilterTextChange={this.handleFilterTextChange}
-                />
+                <SearchBar />
                 <nav>
                     <Link reloadDocument to="/ingredients"
                           className={"button is-large is-outlined " +
