@@ -12,9 +12,6 @@ import IngredientList from "./IngredientList";
  * @param recipe.ingredients - an array of ingredient objects
  */
 class Recipe extends React.Component{
-    constructor(props){
-        super(props);
-    }
 
     render(){
         console.log(this.props.recipe.ingredients)

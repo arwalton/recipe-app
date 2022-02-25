@@ -69,15 +69,17 @@ class FilterableIngredientsList extends React.Component{
                 />
                 <nav>
                     <Link reloadDocument to="/ingredients"
-                          className={"button is-large is-outlined " +
-                                     "has-background-success-dark " +
-                                     "has-text-white-ter"}>
+                          className={`button is-large is-outlined
+                                     has-background-success-dark
+                                     has-text-white-ter
+                                     m-1`}>
                               Start over
-                    </Link> |{" "}
+                    </Link>
                     <Link to="/results"
-                          className={"button is-large is-outlined " +
-                          "has-background-success-dark " +
-                          "has-text-white-ter"}>
+                          className={`button is-large is-outlined
+                                     has-background-success-dark
+                                     has-text-white-ter
+                                     m-1`}>
                               Get results
                     </Link>
                 </nav>

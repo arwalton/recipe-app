@@ -70,7 +70,7 @@ class ResultsPageList extends React.Component{
                                      has-background-success-dark
                                      has-text-white-ter`}>
                               Start over
-                    </Link> |{" "}
+                    </Link> {" "}
                 </nav>
             </div>
         );
