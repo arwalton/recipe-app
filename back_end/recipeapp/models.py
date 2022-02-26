@@ -37,6 +37,7 @@ class Recipe(Base):
     picture = Column(String(250), nullable=True)
     description = Column(String(2500), nullable=True)
     author = Column(String(250), nullable=True)
+    url = Column(String(500), nullable=True)
 
     categories = relationship("Category", secondary=recipe_category, backref="recipe", overlaps="categories,recipe")
     ingredients = relationship("Ingredient", secondary=recipe_ingredient, backref="recipe", overlaps="ingredients,recipe")

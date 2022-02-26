@@ -47,6 +47,52 @@ def ingredientsJSON():
     ingredients = session.query(Ingredient).all()
     return jsonify(Ingredients=[i.serialize for i in ingredients])
 
+# List of ingredients with foodgroups
+@app.route('/ingredients/all/JSON')
+def ingredientsAndFoodgroupsJSON():
+    ingredients = session.query(Ingredient).all()
+    result = {}
+    for ingredient in ingredients:
+        foodgroup = session.query(FoodGroup).filter(FoodGroup.ingredients.any(id=ingredient.id)).one()
+        result.add({
+            "id": ingredient.id,
+            "foodgroup": foodgroup.name,
+            "name": ingredient.name
+        })
+    return result
+
+# List of recipes by ingredient
+@app.route('/getrecipes/JSON')
+def getRecipesByIngredient():
+    ingredient_data = request.json
+    result = {"recipes": []}
+    recipes = session.query(Recipe).all()
+    for recipe in recipes:
+        ingredients = session.query(Ingredient).filter(Ingredient.recipes.any(id=recipe.id)).all()
+        ingredientsObj = []
+        for ingredient in ingredients:
+            foodgroup = session.query(FoodGroup).filter(FoodGroup.ingredients.any(id=ingredient.id)).one()
+            ingredientsObj.append({
+                "id": ingredient.id,
+                "group": foodgroup.name,
+                "name": ingredient.name
+            })
+        result['recipes'].append({
+            "id": recipe.id,
+            "name": recipe.name,
+            "source": recipe.url,
+            "author": recipe.author,
+            "percentage": 0,
+            "ingredients": ingredientsObj
+        })
+    return result
+
+
+@app.route('/ingredients')
+def listOfIngredients():
+    ingredients = request.args.get('ingredients')
+    print(ingredients)
+
 # List of ingredients in foodgroup by id
 @app.route('/foodgroup/<int:foodgroup_id>/ingredients/JSON')
 def ingredientsInFoodgroupJSON(foodgroup_id):
@@ -85,4 +131,4 @@ def recipeJSON(recipe_id):
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='0.0.0.0', port=5007)
+    app.run(host='0.0.0.0', port=5006)

@@ -74,6 +74,7 @@
             "name": "recipe1",
             "picture": "url",
             "description": "description",
+            "source": "https://www.google.com",
             "author": "AU",
             "categories": [ "category_name_3", "category_name_5" ],
             "ingredients": [
@@ -98,6 +99,7 @@
             "name": "recipe2",
             "picture": "url",
             "description": "description",
+            "source": "https://www.google.com",
             "author": "AU",
             "categories": [ "category_name_4"],
             "ingredients": [
@@ -117,6 +119,7 @@
             "name": "recipe3",
             "picture": "url",
             "description": "description",
+            "source": "https://www.google.com",
             "author": "AU",
             "categories": [ "category_name_1", "category_name_3" ],
             "ingredients": [

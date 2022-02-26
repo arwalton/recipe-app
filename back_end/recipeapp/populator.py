@@ -69,7 +69,8 @@ for recipe in data["recipes"]:
     new_recipe = Recipe(name=recipe['name'],
                         picture=recipe['picture'],
                         description=recipe['description'],
-                        author=recipe['author'])
+                        author=recipe['author'],
+                        url=recipe['source'])
     session.add(new_recipe)
     session.commit()
 
