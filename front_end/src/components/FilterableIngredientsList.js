@@ -8,10 +8,6 @@ import recipeStore from "../stores/RecipeStore";
 
 
 //App sends ingredients as a prop through IngredientsPage
-/**
- * @param ingredients - An array of ingredient objects
- */
-
 class FilterableIngredientsList extends React.Component{
     constructor(props){
         super(props);
@@ -103,11 +99,17 @@ class FilterableIngredientsList extends React.Component{
         this.removeFilterTextListener = recipeStore.addFilterTextListener((state) => {
             this.setState({filterText: state});
         })
+
+        //SelectedIngredients
+        this.removeSelectedIngredientListener = recipeStore.addSelectedIngredientListener((state) => {
+            this.setState({selectedIngredients: state});
+        })
     }
 
     componentWillUnmount(){
         this.removeIngredientListener();
         this.removeFilterTextListener();
+        this.removeSelectedIngredientListener();
     }
 
     handleFilterTextChange(filterText){
@@ -118,30 +120,7 @@ class FilterableIngredientsList extends React.Component{
 
     //ingredient is an object that has an id , a group, and a name
     handleSelectedIngredientsChange(ingredientToChange){
-        this.ids = [];
-        this.state.selectedIngredients.forEach(ingredient => {
-            this.ids.push(ingredient.id);
-        });
-
-        if(this.ids.indexOf(ingredientToChange.id) === -1){
-            this.setState(state => {
-                const selectedIngredients = [...state.selectedIngredients, ingredientToChange];
-
-                return {
-                    selectedIngredients,
-                };
-            });
-        }else{
-            this.setState(state =>{
-                const selectedIngredients = state.selectedIngredients.filter((ingredient) => {
-                    return ingredient.id !== ingredientToChange.id
-                });
-
-                return{
-                    selectedIngredients,
-                };
-            });
-        };
+        recipeStore.updateSelectedIngredients(ingredientToChange);
     }
      
     render(){

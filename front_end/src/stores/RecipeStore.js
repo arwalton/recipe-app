@@ -41,14 +41,21 @@ class RecipeStore{
         return removeListener; 
     }
 
-    addSelectedIngredient(ingredient){
+    updateSelectedIngredients(ingredientToUpdate){
+        this.ids = [];
+        this.state.selectedIngredients.forEach(ingredient => {
+            this.ids.push(ingredient.id);
+        });
 
-    }
-
-    setSelectedIngredients (state) {
-        this.state.selectedIngredients = state;
+        if(this.ids.indexOf(ingredientToUpdate.id) === -1){
+            this.state.selectedIngredients.push(ingredientToUpdate);
+        }else{
+            this.state.selectedIngredients = this.state.selectedIngredients.filter((ingredient) => {
+                return ingredient.id !== ingredientToUpdate.id;
+            })
+        };
         for (const listener of this.selectedIngredientListeners){
-            listener(state);
+            listener(this.state.selectedIngredients);
         }
     }
 
@@ -137,5 +144,6 @@ class RecipeStore{
     }
 }
 
-const recipeStore = new RecipeStore({filterText: ""});
+const recipeStore = new RecipeStore({filterText: "",
+                                     selectedIngredients: []});
 export default recipeStore;
