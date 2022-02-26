@@ -12,7 +12,7 @@ class RecipeStore{
         this.filterTextListeners = [];
     }
 
-    //Ingredients
+    //Ingredients - used by FilterableIngredientsList
     addIngredientListener (listener) {
         this.ingredientListeners.push(listener);
         const removeListener = () => {
@@ -32,7 +32,7 @@ class RecipeStore{
         return this.state.ingredients;
     }
 
-    //Selected Ingredients
+    //Selected Ingredients - used by FilterableIngredientsList
     addSelectedIngredientListener (listener) {
         this.selectedIngredientListeners.push(listener);
         const removeListener = () => {
@@ -123,7 +123,7 @@ class RecipeStore{
         return this.state.ingredientSubstitutions;
     }
 
-    //Filter text 
+    //Filter text - used by FilterableIngredientsList
     addFilterTextListener(listener){
         this.filterTextListeners.push(listener);
         const removeListener = () => {
@@ -145,5 +145,6 @@ class RecipeStore{
 }
 
 const recipeStore = new RecipeStore({filterText: "",
-                                     selectedIngredients: []});
+                                     selectedIngredients: [],
+                                     recipes: []});
 export default recipeStore;

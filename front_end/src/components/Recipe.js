@@ -17,7 +17,6 @@ class Recipe extends React.Component{
     }
 
     render(){
-        console.log(this.props.recipe.ingredients)
         return(
             <div
             className={`has-text-white
