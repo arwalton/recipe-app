@@ -1,6 +1,5 @@
 import React from "react";
 import recipeStore from "../stores/RecipeStore";
-import RecipeStort from "../stores/RecipeStore";
 import '../styles/style.css';
 
 class SearchBar extends React.Component{
