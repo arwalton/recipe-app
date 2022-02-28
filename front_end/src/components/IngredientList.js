@@ -13,10 +13,13 @@ class IngredientList extends React.Component{
 
     render(){
         const INGREDIENTS = [];
-        const FILTERTEXT = this.props.filterText.toLowerCase();
+        let filterText = ""
+        if(this.props.filterText){
+         filterText = this.props.filterText.toLowerCase();
+        }
 
         this.props.ingredients.forEach(ingredient =>{
-            if(ingredient.name.toLowerCase().indexOf(FILTERTEXT) === -1){
+            if(ingredient.name.toLowerCase().indexOf(filterText) === -1){
                 return;
             }
             if(ingredient.group === this.props.group || this.props.group === "Ingredients:"){

@@ -4,10 +4,18 @@ import { Link } from "react-router-dom";
 import Recipe from "./Recipe";
 
 import '../styles/style.css';
+import recipeStore from "../stores/RecipeStore";
 
 class ResultsPageList extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      recipes: []
+    }
+  }
 
 
+  //This is a temporary stand-in for a server call
     text = `{
         "recipes": [
           {
@@ -55,14 +63,40 @@ class ResultsPageList extends React.Component{
 
     response = JSON.parse(this.text);
 
+    componentDidMount(){
+      this.removeRecipeListener = recipeStore.addRecipeListener((state) => {
+        this.setState(state);
+      });
+      this.setState({recipes: recipeStore.getRecipes()});
+      //This is where the server call will live
+      this.response = JSON.parse(this.text);
+      recipeStore.setRecipes(this.response);
+
+
+    }
+
+    componentWillUnmount(){
+      this.removeRecipeListener();
+    }
+
     render(){
+      const RECIPES = [];
+
+      for(const recipe of this.state.recipes){
+        RECIPES.push(
+          <Recipe recipe={recipe}
+                  key={recipe.id.toString()} />
+        )
+      }
         return(
-            <div className={"has-text-white"}>
+            <div className={"results-page-list has-text-white"}>
                 <h1>This is the ResultsPageList.</h1>
                 <h1>It holds recipe components.</h1>
 
-                <Recipe recipe={this.response.recipes[0]}/>
-                <Recipe recipe={this.response.recipes[1]}/>
+                {RECIPES}
+
+                {/* <Recipe recipe={this.response.recipes[0]}/>
+                <Recipe recipe={this.response.recipes[1]}/> */}
 
                 <nav>
                     <Link reloadDocument to="/ingredients"
@@ -70,7 +104,7 @@ class ResultsPageList extends React.Component{
                                      has-background-success-dark
                                      has-text-white-ter`}>
                               Start over
-                    </Link> |{" "}
+                    </Link> {" "}
                 </nav>
             </div>
         );
