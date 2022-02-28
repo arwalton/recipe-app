@@ -4,11 +4,16 @@
         rgba(0, 0, 0, 0.5)
       ),
       url('../img/shrimp_dinner.jpg');
-      background-size: cover;
+    background-size: cover;
 }
 
 .filterable-ingredients-list {
     padding-top: 300px;
+}
+
+.results-page-list {
+  padding: 50px;
+
 }
 
 nav {

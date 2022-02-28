@@ -89,7 +89,7 @@ class ResultsPageList extends React.Component{
         )
       }
         return(
-            <div className={"has-text-white"}>
+            <div className={"results-page-list has-text-white"}>
                 <h1>This is the ResultsPageList.</h1>
                 <h1>It holds recipe components.</h1>
 
@@ -104,7 +104,7 @@ class ResultsPageList extends React.Component{
                                      has-background-success-dark
                                      has-text-white-ter`}>
                               Start over
-                    </Link> |{" "}
+                    </Link> {" "}
                 </nav>
             </div>
         );
