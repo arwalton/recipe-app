@@ -1,6 +1,7 @@
 import sys
 import random
 import string
+import math
 import json
 import requests
 
@@ -62,9 +63,51 @@ def ingredientsAndFoodgroupsJSON():
     return result
 
 # List of recipes by ingredient
-@app.route('/getrecipes/JSON')
+@app.route('/getrecipes/JSON', methods=['POST'])
 def getRecipesByIngredient():
-    ingredient_data = request.json
+    content_type = request.headers.get('Content-Type')
+    content_type = request.headers.get('Content-Type')
+    if (content_type == 'application/json'):
+        json = request.get_json()
+        ingredients = json["ingredients"]
+        result = {"recipes": []}
+        ingredientNames = []
+        for ingredient in ingredients:
+            ingredientName = ingredient["name"]
+            ingredientNames.append(ingredientName)
+
+        for ingredient in ingredients:
+            ingredientName = ingredient["name"]
+            recipes = session.query(Recipe).filter(Recipe.ingredients.any(name=ingredientName)).all()
+
+            for recipe in recipes:
+                ingredients = session.query(Ingredient).filter(Ingredient.recipes.any(id=recipe.id)).all()
+                ingredientsObj = []
+                match = 0
+                for ingredient in ingredients:
+                    foodgroup = session.query(FoodGroup).filter(FoodGroup.ingredients.any(id=ingredient.id)).one()
+                    if ingredient.name in ingredientNames:
+                        match = match + 1
+                    ingredientsObj.append({
+                        "id": ingredient.id,
+                        "group": foodgroup.name,
+                        "name": ingredient.name
+                    })
+                print("match " + str(match))
+                print("ingredients " + str(len(ingredientsObj)))
+                percentage = int(math.ceil(float(match) / len(ingredientsObj) * 100))
+                result['recipes'].append({
+                    "id": recipe.id,
+                    "name": recipe.name,
+                    "source": recipe.url,
+                    "author": recipe.author,
+                    "percentage": percentage,
+                    "ingredients": ingredientsObj
+                })
+        return jsonify(result)
+    else:
+        return 'Content-Type not supported!'
+
     result = {"recipes": []}
     recipes = session.query(Recipe).all()
     for recipe in recipes:
