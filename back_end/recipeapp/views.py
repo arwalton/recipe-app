@@ -66,7 +66,6 @@ def ingredientsAndFoodgroupsJSON():
 @app.route('/getrecipes/JSON', methods=['POST'])
 def getRecipesByIngredient():
     content_type = request.headers.get('Content-Type')
-    content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         json = request.get_json()
         ingredients = json["ingredients"]
@@ -108,27 +107,28 @@ def getRecipesByIngredient():
     else:
         return 'Content-Type not supported!'
 
-    result = {"recipes": []}
-    recipes = session.query(Recipe).all()
-    for recipe in recipes:
-        ingredients = session.query(Ingredient).filter(Ingredient.recipes.any(id=recipe.id)).all()
-        ingredientsObj = []
-        for ingredient in ingredients:
-            foodgroup = session.query(FoodGroup).filter(FoodGroup.ingredients.any(id=ingredient.id)).one()
-            ingredientsObj.append({
-                "id": ingredient.id,
-                "group": foodgroup.name,
-                "name": ingredient.name
+@app.route('/substitutes/JSON', methods=['POST'])
+def getSubstitutes():
+    content_type = request.headers.get('Content-Type')
+    if (content_type == 'application/json'):
+        json = request.get_json()
+        ingredient = json
+        print(ingredient)
+        result = {
+                    "id": ingredient["id"],
+                    "name": ingredient["name"],
+                    "substitutes": []
+                }
+        substitutes = session.query(Ingredient).filter(Ingredient.substitutes.any(id=ingredient["id"])).all()
+        for s in substitutes:
+            result["substitutes"].append({
+                "id": s.id,
+                "name": s.name,
+                "ratio": "Can be substituted in equal amount"
             })
-        result['recipes'].append({
-            "id": recipe.id,
-            "name": recipe.name,
-            "source": recipe.url,
-            "author": recipe.author,
-            "percentage": 0,
-            "ingredients": ingredientsObj
-        })
-    return result
+        return jsonify(result)
+    else:
+        return 'Content-Type not supported!'
 
 
 @app.route('/ingredients')
