@@ -46,7 +46,11 @@ def foodgroupsJSON():
 @app.route('/ingredients/JSON')
 def ingredientsJSON():
     ingredients = session.query(Ingredient).all()
-    return jsonify(Ingredients=[i.serialize for i in ingredients])
+
+    response = jsonify(Ingredients=[i.serialize for i in ingredients])
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    #return jsonify(Ingredients=[i.serialize for i in ingredients])
+    return response
 
 # List of ingredients with foodgroups
 @app.route('/ingredients/all/JSON')
