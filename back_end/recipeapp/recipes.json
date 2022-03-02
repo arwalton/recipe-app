@@ -1,45 +1,61 @@
 {
     "categories": [
         {
-            "name": "category_name_1",
+            "name": "Dinner",
             "picture": "url"
         },
         {
-            "name": "category_name_2",
+            "name": "Breakfast",
             "picture": "url"
         },
         {
-            "name": "category_name_3",
+            "name": "Lunch",
             "picture": "url"
         },
         {
-            "name": "category_name_4",
+            "name": "Easy prep",
             "picture": "url"
         },
         {
-            "name": "category_name_5",
+            "name": "Gluten-free",
             "picture": "url"
         }
     ],
     "food_groups": [
         {
-            "name": "group_name_1",
+            "name": "Meats",
             "picture": "url"
         },
         {
-            "name": "group_name_2",
+            "name": "Vegetables",
             "picture": "url"
         },
         {
-            "name": "group_name_3",
+            "name": "Fruits",
             "picture": "url"
         },
         {
-            "name": "group_name_4",
+            "name": "Dairy",
             "picture": "url"
         },
         {
-            "name": "group_name_5",
+            "name": "Grains",
+            "picture": "url"
+        },
+        {
+            "name": "Aromatics & Spices",
+            "picture": "url"
+        },
+        {
+            "name": "Poultry",
+            "picture": "url"
+        },
+        {
+            "name": "Fish",
+            "picture": "url"
+        },
+        {
+            "name": "Condiments",
             "picture": "url"
         }
     ],
@@ -71,27 +87,66 @@
     ],
     "recipes": [
         {
-            "name": "recipe1",
-            "picture": "url",
-            "description": "description",
-            "source": "https://www.google.com",
-            "author": "AU",
-            "categories": [ "category_name_3", "category_name_5" ],
+            "name": "Ginger Beef Stir-Fry",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/w08-r02-731bfbb1.jpg",
+            "description": "Tender beef and crisp, springy asparagus are quickly stir-fried with warming ginger and served over fluffy basmati rice. Hoisin sauce adds a touch of sweetness and an incredible umami depth. It’s so sweet and succulent, we’re sure you’ll agree with us that this is a recipe worth visiting again and again.",
+            "source": "https://www.hellofresh.com/recipes/w08-r02-5873bb3db32fbe1a1b00abe2",
+            "author": "HF",
+            "categories": [ "Dinner", "Gluten-free" ],
             "ingredients": [
                 {
-                    "name": "ingredient_1",
-                    "food_group": "group_name_1",
-                    "picture": "url"
+                    "name": "Beef Sirloin Tips",
+                    "food_group": "Meats",
+                    "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/image/57c5aa2d544b18bf1b8b4567-24d4dfb3.png",
+                    "amount": "12 ounce"
                 },
                 {
-                    "name": "ingredient_2",
-                    "food_group": "group_name_3",
-                    "picture": "url"
+                    "name": "Basmati Rice",
+                    "food_group": "Grains",
+                    "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/image/554a35914dab71716c8b4569.png",
+                    "amount": "¾ cup"
                 },
                 {
-                    "name": "ingredient_6",
-                    "food_group": "group_name_1",
-                    "picture": "url"
+                    "name": "Asparagus",
+                    "food_group": "Vegetables",
+                    "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/image/554a3c0a4dab71636c8b456c.png",
+                    "amount": "6 ounce"
+                },
+                {
+                    "name": "Garlic",
+                    "food_group": "Vegetables",
+                    "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/ingredient/554a363df8b25e1d268b456b-15867d90.png",
+                    "amount": "2 clove"
+                },
+                {
+                    "name": "Ginger",
+                    "food_group": "Aromatics & Spices",
+                    "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/ingredient/555a37dbf8b25e15458b4567-b313ebe1.png",
+                    "amount": "1 thumb"
+                },
+                {
+                    "name": "Hoisin Sauce",
+                    "food_group": "Condiments",
+                    "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/image/571a3d05f8b25e0a138b4568.png",
+                    "amount": "1 jar"
+                },
+                {
+                    "name": "Sesame Seeds",
+                    "food_group": "Condiments & Spices",
+                    "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/ingredient/5566d4044dab7152078b456a-e9370f1c.png",
+                    "amount": "1 tablespoon"
+                },
+                {
+                    "name": "Scallions",
+                    "food_group": "Vegetables",
+                    "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/ingredient/554a301f4dab71626c8b4569-015d8d9b.png",
+                    "amount": "1 units"
+                },
+                {
+                    "name": "Soy Sauce",
+                    "food_group": "Condiments",
+                    "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/image/5550dc4afd2cb9a7168b4568.png",
+                    "amount": "½ ounce"
                 }
             ]
         },
@@ -106,7 +161,8 @@
                 {
                     "name": "ingredient_2",
                     "food_group": "group_name_3",
-                    "picture": "url"
+                    "picture": "url",
+                    "amount": "1 thumb"
                 },
                 {
                     "name": "ingredient_1",

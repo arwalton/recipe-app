@@ -7,6 +7,7 @@ import requests
 
 from flask import Flask
 from flask import render_template, redirect, request, url_for, flash, jsonify
+from flask_cors import CORS
 
 # Add CRUD operations
 from sqlalchemy import create_engine
@@ -28,6 +29,7 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 app = Flask(__name__, static_folder='static')
+CORS(app)
 
 # API endpoints
 # List of categories (JSON)
