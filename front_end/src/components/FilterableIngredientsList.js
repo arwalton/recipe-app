@@ -87,8 +87,8 @@ class FilterableIngredientsList extends React.Component{
     componentDidMount(){
         //Ingredients
         this.removeIngredientListener = recipeStore.addIngredientListener((state) => {
-            this.setState(state);
-        });
+            this.setState({ingredients: state});
+        })
         this.setState({ingredients: recipeStore.getIngredients()});
         //This is where the first call to the server will be
 
@@ -100,14 +100,8 @@ class FilterableIngredientsList extends React.Component{
           },
         })
           .then(res => {
-          const ingredients = res.data;
-          console.log(ingredients);
-          recipeStore.setIngredients(ingredients)
+          recipeStore.setIngredients(res.data.Ingredients);
         })
-
-        this.response = JSON.parse(this.text);
-        console.log(this.response);
-        recipeStore.setIngredients(this.response);
 
         //Filter text
         this.removeFilterTextListener = recipeStore.addFilterTextListener((state) => {
