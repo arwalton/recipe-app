@@ -4,7 +4,7 @@ To start the server (console):
 > python views.py
 
 To access the back office (browser):
-0.0.0.0:5004
+0.0.0.0:5006
 
 Basic Endpoints:
 /categories/JSON

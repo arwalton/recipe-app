@@ -7,7 +7,6 @@ import '../styles/style.css';
 import recipeStore from "../stores/RecipeStore";
 
 
-//App sends ingredients as a prop through IngredientsPage
 class FilterableIngredientsList extends React.Component{
     constructor(props){
         super(props);
@@ -88,12 +87,21 @@ class FilterableIngredientsList extends React.Component{
     componentDidMount(){
         //Ingredients
         this.removeIngredientListener = recipeStore.addIngredientListener((state) => {
-            this.setState(state);
-        });
+            this.setState({ingredients: state});
+        })
         this.setState({ingredients: recipeStore.getIngredients()});
         //This is where the first call to the server will be
-        this.response = JSON.parse(this.text);
-        recipeStore.setIngredients(this.response);
+
+        const axios = require('axios');
+        const url = "http://localhost:5006/ingredients/JSON";
+        axios.get(url, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then(res => {
+          recipeStore.setIngredients(res.data.Ingredients);
+        })
 
         //Filter text
         this.removeFilterTextListener = recipeStore.addFilterTextListener((state) => {

@@ -12,6 +12,7 @@ import '../styles/style.css';
 class IngredientGroupList extends React.Component{
 
     render(){
+        if(this.props.ingredients){
         const GROUPS = [];
         let lastGroup = null;
 
@@ -35,6 +36,9 @@ class IngredientGroupList extends React.Component{
                 {GROUPS}
             </div>
         );
+        }else{
+            return(<div>Loading...</div>)
+        }
     }
 }
 
