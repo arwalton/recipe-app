@@ -21,7 +21,6 @@ import httplib2
 from flask import make_response
 
 # Create session, connect to db
-
 data = 'sqlite:///recipeapp.db'
 engine = create_engine(data, connect_args={'check_same_thread': False}, poolclass=StaticPool)
 Base.metadata.bind = engine
@@ -29,9 +28,10 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 app = Flask(__name__, static_folder='static')
-CORS(app)
+CORS(app) # cross-origin requests
 
 # API endpoints
+
 # List of categories (JSON)
 @app.route('/categories/JSON')
 def categoriesJSON():
@@ -44,14 +44,13 @@ def foodgroupsJSON():
     foodgroups = session.query(FoodGroup).all()
     return jsonify(FoodGroups=[i.serialize for i in foodgroups])
 
-# List of ingredients
+# List of ingredients (no foodgroups)
 @app.route('/ingredients/JSON')
 def ingredientsJSON():
     ingredients = session.query(Ingredient).all()
-
+    # change headers for cross-origin requests
     response = jsonify(Ingredients=[i.serialize for i in ingredients])
     response.headers.add('Access-Control-Allow-Origin', '*')
-    #return jsonify(Ingredients=[i.serialize for i in ingredients])
     return response
 
 # List of ingredients with foodgroups
@@ -59,6 +58,7 @@ def ingredientsJSON():
 def ingredientsAndFoodgroupsJSON():
     ingredients = session.query(Ingredient).all()
     result = {"ingredients": []}
+    # for all ingredients create json with foodgroups information
     for ingredient in ingredients:
         foodgroups = session.query(FoodGroup).filter(FoodGroup.ingredients.any(id=ingredient.id)).all()
         current_foodgroups = []
@@ -74,6 +74,7 @@ def ingredientsAndFoodgroupsJSON():
 # List of recipes by ingredient
 @app.route('/get_recipes/JSON', methods=['POST'])
 def getRecipesByIngredient():
+    # check request content type
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         # get json from request body
@@ -100,7 +101,7 @@ def getRecipesByIngredient():
                 ingredients = session.query(Ingredient).filter(Ingredient.recipes.any(id=recipe.id)).all()
                 # create a list of ingredients for current recipe
                 ingredientsObj = []
-                # count percentage of selected ingredients in the recipe
+                # count percentage of selected ingredients in the recipe (initialize counter)
                 match = 0
                 # create ingredient objects within the recipe
                 for ingredient in ingredients:
@@ -117,8 +118,9 @@ def getRecipesByIngredient():
                     for fg in foodgroup:
                         current_ingredient["group"].append(fg.name)
                     ingredientsObj.append(current_ingredient)
-
+                # count percentage of selected ingredients in the recipe
                 percentage = int(math.ceil(float(match) / len(ingredientsObj) * 100))
+                # create json
                 result['recipes'].append({
                     "id": recipe.id,
                     "name": recipe.name,
@@ -131,18 +133,21 @@ def getRecipesByIngredient():
     else:
         return 'Content-Type not supported!'
 
+# List of of foodgroups for ingredient
 @app.route('/get_foodgroup/JSON', methods=['POST'])
 def getFoodgroup():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         json = request.get_json()
         ingredient = json
+        # get foodgroups by ingredient
         foodgroups = session.query(FoodGroup).filter(FoodGroup.ingredients.any(name=ingredient["name"])).all()
         result = {"foodgroups": []}
         for fg in foodgroups:
             result["foodgroups"].append(fg.name)
         return result
 
+# List of substitutes
 @app.route('/substitutes/JSON', methods=['POST'])
 def getSubstitutes():
     content_type = request.headers.get('Content-Type')
@@ -165,46 +170,37 @@ def getSubstitutes():
     else:
         return 'Content-Type not supported!'
 
+# Additional endpoints for future development
 
-@app.route('/ingredients')
-def listOfIngredients():
-    ingredients = request.args.get('ingredients')
-    print(ingredients)
-
-# List of ingredients in foodgroup by id
+# List of ingredients by foodgroup id
 @app.route('/foodgroup/<int:foodgroup_id>/ingredients/JSON')
 def ingredientsInFoodgroupJSON(foodgroup_id):
     ingredients = session.query(Ingredient).filter(Ingredient.foodgroups.any(id=foodgroup_id)).all()
     return jsonify(Ingredients=[i.serialize for i in ingredients])
 
-# List of ingredients in recipe by id
+# List of ingredients by recipe id
 @app.route('/recipes/<int:recipe_id>/ingredients/JSON')
 def ingredientsInRecipeJSON(recipe_id):
     ingredients = session.query(Ingredient).filter(Ingredient.recipes.any(id=recipe_id)).all()
     return jsonify(Ingredients=[i.serialize for i in ingredients])
 
-# List of recipes
+# List of all recipes (no ingredients)
 @app.route('/recipes/JSON')
 def recipesJSON():
     recipes = session.query(Recipe).all()
     return jsonify(Recipes=[i.serialize for i in recipes])
 
-@app.route('/recipes/JSON')
-def testJSON():
-    recipes = session.query(Recipe).all()
-    return jsonify(Recipes=[i.serialize for i in recipes])
-
-# List of recipes in category by id
+# List of recipes by category id
 @app.route('/categories/<int:category_id>/recipes/JSON')
 def recipesInCategoryJSON(category_id):
     recipes = session.query(Recipe).filter(Recipe.categories.any(id=category_id)).all()
     return jsonify(Recipes=[i.serialize for i in recipes])
 
-# Recipe (JSON)
+# Recipe by id (JSON)
 @app.route('/recipes/<int:recipe_id>/JSON')
 def recipeJSON(recipe_id):
     recipe = session.query(Recipe).filter_by(id=recipe_id).one()
-    return jsonify(Recipe=[i.serialize for i in recipe])
+    return jsonify(Recipe=recipe.serialize)
 
 
 if __name__ == '__main__':
