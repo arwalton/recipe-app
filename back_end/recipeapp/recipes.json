@@ -2,77 +2,89 @@
     "categories": [
         {
             "name": "Dinner",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Breakfast",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Lunch",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Easy prep",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Gluten-free",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Seafood",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Veggie",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Quick",
-            "picture": "url"
+            "picture": ""
+        },
+        {
+            "name": "Spicy",
+            "picture": ""
+        },
+        {
+            "name": "Gourmet",
+            "picture": ""
         }
     ],
     "food_groups": [
         {
             "name": "Meats",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Vegetables",
-            "picture": "url"
+            "picture": ""
+        },
+        {
+            "name": "Legumes",
+            "picture": ""
         },
         {
             "name": "Fruits",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Dairy",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Grains",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Spices",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Poultry",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Fish",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Condiments",
-            "picture": "url"
+            "picture": ""
         },
         {
             "name": "Proteins",
-            "picture": "url"
+            "picture": ""
         }
     ],
     "substitutes": [
@@ -188,7 +200,7 @@
             "ingredients": [
                 {
                     "name": "Zucchini",
-                    "food_group": "Vegetable",
+                    "food_group": "Vegetables",
                     "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/ingredient/5553981df8b25e5d0c8b456a-9ada5be3.png",
                     "amount": "1 unit"
                 },
@@ -247,62 +259,62 @@
                 {
                     "name": "Zucchini",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Lime",
                     "food_group": "Fruits",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Scallions",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Ginger",
                     "food_group": "Spices",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Ground Pork",
                     "food_group": "Meats",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Panko Breadcrumbs",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Teriyaki Sauce",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Shredded Carrots",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Sesame Oil",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Jasmine Rice",
                     "food_group": "Grains",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Sriracha",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Sesame Seeds",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 }
             ]
         },
@@ -317,47 +329,47 @@
                 {
                     "name": "Cod Fillets",
                     "food_group": "Poultry",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Yukon Gold Potatoes",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Carrots",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Lemon",
                     "food_group": "Fruits",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Garlic",
                     "food_group": "Spices",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Parsley",
                     "food_group": "Spices",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Dried Oregano",
                     "food_group": "Spices",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Panko Breadcrumbs",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Parmesan Cheese",
                     "food_group": "Dairy",
-                    "picture": "url"
+                    "picture": ""
                 }
             ]
         },
@@ -372,37 +384,37 @@
                 {
                     "name": "Roma Tomato",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Garlic",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Flatbreads",
                     "food_group": "Grains",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Arugula",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Roasted Red Pepper Hummus",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Mozzarella Cheese",
                     "food_group": "Dairy",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Balsamic Glaze",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 }
             ]
         },
@@ -417,42 +429,42 @@
                 {
                     "name": "Chives",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Cream Cheese",
                     "food_group": "Dairy",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Dijon Mustard",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Sourdough Bread",
                     "food_group": "Grains",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Gouda Cheese",
                     "food_group": "Dairy",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Eggs",
                     "food_group": "Proteins",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Parmesan Cheese",
                     "food_group": "Dairy",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Prosciutto",
                     "food_group": "Meats",
-                    "picture": "url"
+                    "picture": ""
                 }
             ]
         },
@@ -467,57 +479,57 @@
                 {
                     "name": "Red Onion",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Long Green Pepper",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Roma Tomato",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Cilantro",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Lime",
                     "food_group": "Fruits",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Southwest Spice Blend",
                     "food_group": "Spices",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Eggs",
                     "food_group": "Proteins",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Flour Tortillas",
                     "food_group": "Grains",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Monterey Jack Cheese",
                     "food_group": "Dairy",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Sour Cream",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Smoked Paprika",
                     "food_group": "Spices",
-                    "picture": "url"
+                    "picture": ""
                 }
             ]
         },
@@ -532,42 +544,417 @@
                 {
                     "name": "Persian Cucumber",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Shredded Red Cabbage",
                     "food_group": "Vegetables",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Chicken Breast Strips",
                     "food_group": "Poultry",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "White Wine Vinegar",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Bulgogi Sauce",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Sour Cream",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Sriracha",
                     "food_group": "Condiments",
-                    "picture": "url"
+                    "picture": ""
                 },
                 {
                     "name": "Flour Tortillas",
                     "food_group": "Grains",
-                    "picture": "url"
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "One-Pan Black Bean & Poblano Quesadillas",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/one-pan-black-bean-poblano-quesadillas-10ffd317.jpg",
+            "description": "When it comes to quesadillas, we think there’s an endless number of protein, cheese, and veg combos you can make for a delicious and unique meal. This one is no exception: Our chefs pulled together these veg-forward ‘dillas with protein-packed black beans, sautéed poblanos, and melty cheese. They’re topped with lime crema and hot sauce for even more oomph. The best part? This all comes together in under 20 minutes.",
+            "source": "https://www.hellofresh.com/recipes/one-pan-black-bean-poblano-quesadillas-62163cbe7b73f835462a04a4",
+            "author": "HF",
+            "categories": [ "Easy Prep", "Lunch" ],
+            "ingredients": [
+                {
+                    "name": "Poblano Pepper",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                },
+                {
+                    "name": "Black Beans",
+                    "food_group": "Legumes",
+                    "picture": ""
+                },
+                {
+                    "name": "Lime",
+                    "food_group": "Fruits",
+                    "picture": ""
+                },
+                {
+                    "name": "Tex-Mex Paste",
+                    "food_group": "Condiments",
+                    "picture": ""
+                },
+                {
+                    "name": "Sour Cream",
+                    "food_group": "Condiments",
+                    "picture": ""
+                },
+                {
+                    "name": "Flour Tortillas",
+                    "food_group": "Grains",
+                    "picture": ""
+                },
+                {
+                    "name": "Monterey Jack Cheese",
+                    "food_group": "Dairy",
+                    "picture": ""
+                },
+                {
+                    "name": "Hot Sauce",
+                    "food_group": "Condiments",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Mediterranean Chicken Bowls",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/mediterranean-chicken-bowls-420fd0df.jpg",
+            "description": "The Mediterranean Sea may conjure up images of calm blue shores and lazy, sunny days spent at the beach. This recipe, however, although undeniably Mediterranean in flavor, is anything but laid back. In fact, it will be in and out of your kitchen in barely any time at all—you can make it in as little as 20 minutes. All it takes is a few zaps in the microwave to warm up the stock for the couscous, followed by a little chopping for the salad and a quick sautée for the chicken.",
+            "source": "https://www.hellofresh.com/recipes/mediterranean-chicken-bowls-5bb4d35eae08b57d6f32dad2",
+            "author": "HF",
+            "categories": [ "Spicy", "Dinner" ],
+            "ingredients": [
+                {
+                    "name": "Chicken Stock Concentrate",
+                    "food_group": "Condiments",
+                    "picture": ""
+                },
+                {
+                    "name": "Couscous",
+                    "food_group": "Grains",
+                    "picture": ""
+                },
+                {
+                    "name": "Mediterranean Spice Blend",
+                    "food_group": "Spices",
+                    "picture": ""
+                },
+                {
+                    "name": "Roma Tomato",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                },
+                {
+                    "name": "Persian Cucumber",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                },
+                {
+                    "name": "Lemon",
+                    "food_group": "Fruits",
+                    "picture": ""
+                },
+                {
+                    "name": "Scallions",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                },
+                {
+                    "name": "Garlic",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                },
+                {
+                    "name": "Garlic",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                },
+                {
+                    "name": "Yogurt",
+                    "food_group": "Dairy",
+                    "picture": ""
+                },
+                {
+                    "name": "Chicken Breast Strips",
+                    "food_group": "Poultry",
+                    "picture": ""
+                },
+                {
+                    "name": "Turmeric",
+                    "food_group": "Spices",
+                    "picture": ""
+                },
+                {
+                    "name": "Paprika",
+                    "food_group": "Spices",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Honey Thyme Chicken",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/6216806726affc043e76f533-6b768aaf.jpg",
+            "description": "A honey-based sauce may sound like something that goes with dessert, but mild-tasting pork loves a sweet sauce too, especially one that has a few savory elements added to the mix. In this recipe, you’ll be folding an extra-large drizzle of honey into a rich, savory pan sauce, then spooning it onto pork tenderloin. (We recommend spooning it on the roasted potatoes and side of green beans, too!)",
+            "source": "https://www.hellofresh.com/recipes/honey-thyme-chicken-6216806726affc043e76f533",
+            "author": "Hello Fresh",
+            "categories": [ "Carb Smart", "Dinner" ],
+            "ingredients": [
+                {
+                    "name": "Chicken Cutlets",
+                    "food_group": "Meats",
+                    "picture": ""
+                },
+                {
+                    "name": "Yukon Gold Potatoes",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                },
+                {
+                    "name": "Green Beans",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Salmon En Papillote",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/salmon-en-papillote-353dd4db.jpg",
+            "description": "It doesn’t matter if you can pronounce en papillote; the appeal of this classic French technique is easy to understand. When you wrap salmon fillets in foil, then cook them in the oven (or on the grill), they basically roast in their own juices, locking in flavor and moisture throughout. In this recipe, they’re finished with a drizzle of herb sauce and served next to asparagus and couscous. Basically, it’s an equation for timeless, classic deliciousness.",
+            "source": "https://www.hellofresh.com/recipes/salmon-en-papillote-591e127b2310a87a76080c92",
+            "author": "Hello Fresh",
+            "categories": [ "Seafood", "Dinner" ],
+            "ingredients": [
+                {
+                    "name": "Skin-on Salmon",
+                    "food_group": "Fish",
+                    "picture": ""
+                },
+                {
+                    "name": "Couscous",
+                    "food_group": "Grains",
+                    "picture": ""
+                },
+                {
+                    "name": "Asparagus",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Korean Beef Bibimbap",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/5ab3b883ae08b53bb4024952-cd6ea4a4.jpg",
+            "description": "This Korean dish takes its name from the Korean word for mixing rice. Which is exactly what you’re meant to do after serving it: you put your rice in a bowl, add the toppings, and mix it all together so that those flavors and textures combine in a glorious mishmash. There are plenty of flavors and textures going on here, too, like sweet carrot, juicy zucchini, and beef tossed with garlic, ginger, and soy.",
+            "source": "https://www.hellofresh.com/recipes/korean-beef-bibimbap-5ab3b883ae08b53bb4024952",
+            "author": "Hello Fresh",
+            "categories": [ "Spicy", "Dinner" ],
+            "ingredients": [
+                {
+                    "name": "Ground Beef",
+                    "food_group": "Meats",
+                    "picture": ""
+                },
+                {
+                    "name": "Zucchini",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                },
+                {
+                    "name": "Button Mushrooms",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Lemon Dill Lobster Ravioli and Shrimp",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/5d92144a151e710e3f45c7eb-b0689856.jpg",
+            "description": "This is not your typical ravioli. To take the tender pasta pillows to the next level, we filled them with succulent lobster meat, paired them with sweet sautéed shrimp, and tossed them in a lemony dill cream sauce. For an elevated finish (and delicious crunch), we tangled marinated zucchini ribbons on top.",
+            "source": "https://www.hellofresh.com/recipes/lobster-ravioli-and-shrimp-with-lemon-dill-sauce-5d92144a151e710e3f45c7eb",
+            "author": "Hello Fresh",
+            "categories": [ "Seafood", "Gourmet" ],
+            "ingredients": [
+                {
+                    "name": "Lobster Ravioli",
+                    "food_group": "Fish",
+                    "picture": ""
+                },
+                {
+                    "name": "Shrimps",
+                    "food_group": "Fish",
+                    "picture": ""
+                },
+                {
+                    "name": "Zucchini",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Caramelized Pineapple Teriyaki Burger",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/2019-w14-r7-caramelized-pineapple-teriyaki-burger-18822721.jpg",
+            "description": "Take your taste buds on a trip to the tropics! This recipe has warm and sunny flavors guaranteed to brighten up dinnertime. Teriyaki-glazed burgers are topped with charred onion slices and juicy, caramelized pineapple (aka happiness in a bun). On the side, there’s a heap of crispy sweet potato wedges and creamy sriracha mayo for dunking. Sweet, savory, and spicy--these bodacious burgers hit all the right notes. Plus, they’re a breeze to whip up!",
+            "source": "https://www.hellofresh.com/recipes/2019-w14-r7-caramelized-pineapple-teriyaki-burger-5c66ff54e3f3397f526bce41",
+            "author": "Hello Fresh",
+            "categories": [ "Easy Prep", "Dinner" ],
+            "ingredients": [
+                {
+                    "name": "Potato Buns",
+                    "food_group": "Grains",
+                    "picture": ""
+                },
+                {
+                    "name": "Ground Beef",
+                    "food_group": "Meats",
+                    "picture": ""
+                },
+                {
+                    "name": "Sweet Potato",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Green Olive Pasta Puttanesca",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/2019-w17-r8-heirloom-tomato-flatbreads-798f8c16.jpg",
+            "description": "Spaghetti and tomato sauce just got a flavorful makeover--and it’s got heads turning. This gussied-up classic is all about bright and exciting flavors: briny bites of green olive, thinly sliced garlic, and a touch of chopped fresh chili add serious oomph to marinara. This super savory melange coats twirly, al dente spaghetti for an extra-hearty and satisfying experience. On the side, there’s a heap of lemony arugula salad (because we’re all about balance).",
+            "source": "https://www.hellofresh.com/recipes/2019-w17-r8-heirloom-tomato-flatbreads-5c82a401c445fa19d16561d2",
+            "author": "Hello Fresh",
+            "categories": [ "Veggie", "Lunch" ],
+            "ingredients": [
+                {
+                    "name": "Spaghetti",
+                    "food_group": "Grains",
+                    "picture": ""
+                },
+                {
+                    "name": "Marinara Sauce",
+                    "food_group": "Condiments",
+                    "picture": ""
+                },
+                {
+                    "name": "Arugula",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Italian Ciabatta Cheeseburgers",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/italian-ciabatta-cheeseburgers-fb9efe2a.jpg",
+            "description": "Burgers are about as all-American as you can get (bonus points for making them at your all-American cookout). But that doesn’t mean they don’t have dreams of voyaging to faraway places. These mozzarella-topped patties with balsamic greens on ciabatta are what happens when cheeseburgers take a trip to Italy. In fact, their dolce vita attitude made them a hit with our happy cooks last time, which is why we’re adding this recipe to the HelloFresh Hall of Fame.",
+            "source": "https://www.hellofresh.com/recipes/italian-ciabatta-cheeseburgers-5964eb93043c3c2fff30da32",
+            "author": "Hello Fresh",
+            "categories": [ "Easy Prep", "Lunch" ],
+            "ingredients": [
+                {
+                    "name": "Ground Beef",
+                    "food_group": "Meats",
+                    "picture": ""
+                },
+                {
+                    "name": "Ciabatta Bread",
+                    "food_group": "Grains",
+                    "picture": ""
+                },
+                {
+                    "name": "Grape Tomatoes",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Balsamic Fig Sirloin",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/balsamic-fig-sirloin-6a4e1f84.jpg",
+            "description": "Gettin’ figgy with it! Fig jam, that is. Here, the sweet stuff is paired with balsamic vinegar to create a rich and tangy pan sauce for drizzling over juicy sirloin steaks. Rosemary-roasted potatoes are the perfect accompaniment for swiping up any runaway sauce (and trust us, you won’t want to waste a drop.) There’s also a side of crisp-tender green beans for extra oomph. This dish is bursting with flavors and textures that’ll make your mouth dance.",
+            "source": "https://www.hellofresh.com/recipes/balsamic-fig-sirloin-5d8a1e1b896cd855e64c206d",
+            "author": "Hello Fresh",
+            "categories": [ "Gourmet", "Dinner" ],
+            "ingredients": [
+                {
+                    "name": "Sirloin Steak",
+                    "food_group": "Meats",
+                    "picture": ""
+                },
+                {
+                    "name": "Fingerling Potatoes",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                },
+                {
+                    "name": "Green Beans",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "One-Pan Sweet Chili Turkey Lettuce Wraps",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/61b8b6414c89a62bac7d8c8e-e9cf546c.jpg",
+            "description": "Lettuce wraps are the ultimate vehicle for serving this dinner. Our chefs came up with the perfect filling for fresh and crisp romaine leaves by piling them with sautéed turkey and bell pepper in a chili-soy sauce, candied peanuts, and a garnish of cilantro. Get ready to be wowed by the wrap.",
+            "source": "https://www.hellofresh.com/recipes/one-pan-sweet-chili-turkey-lettuce-wraps-61b8b6414c89a62bac7d8c8e",
+            "author": "Hello Fresh",
+            "categories": [ "Gluten-free", "Dinner" ],
+            "ingredients": [
+                {
+                    "name": "Ground Turkey",
+                    "food_group": "Poultry",
+                    "picture": ""
+                },
+                {
+                    "name": "Romaine Lettuce",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                },
+                {
+                    "name": "Bell Pepper",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Lemon-Ricotta Dutch Baby",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/lemon-ricotta-dutch-baby-3ce839b0.jpg",
+            "description": "Ooh, baby! This skillet-size pancake has that “wow” factor that makes eyes open wide. Like a giant popover, the batter poofs up dramatically as it cooks. Then there are the cozy, cold-weather toppings, like pears cooked with warming spices and luxurious crème fraîche mixed with maple syrup. Perfect for breakfast, brunch, or dessert, this baby is so easy to make you’ll want to go Dutch all the time.",
+            "source": "https://www.hellofresh.com/recipes/lemon-ricotta-dutch-baby-61e87d2d879b0d4c9b2bdbc0",
+            "author": "Hello Fresh",
+            "categories": [ "Gourmet", "Breakfast" ],
+            "ingredients": [
+                {
+                    "name": "Bartlett Pear",
+                    "food_group": "Fruits",
+                    "picture": ""
+                },
+                {
+                    "name": "Eggs",
+                    "food_group": "Proteins",
+                    "picture": ""
+                },
+                {
+                    "name": "Milk",
+                    "food_group": "Dairy",
+                    "picture": ""
                 }
             ]
         }

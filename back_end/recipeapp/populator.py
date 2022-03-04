@@ -106,10 +106,11 @@ for recipe in data["recipes"]:
             newFoodGroup = FoodGroup(name=ingredient["food_group"], picture=placeholder_url)
             session.add(newFoodGroup)
             session.commit()
-        current_food_group = session.query(FoodGroup).filter_by(name=ingredient["food_group"]).one()
-        ingredientInDb.foodgroups.append(current_food_group)
-        current_food_group.ingredients.append(ingredientInDb)
-        session.commit()
+        current_food_groups = session.query(FoodGroup).filter_by(name=ingredient["food_group"]).all()
+        for fg in current_food_groups:
+            ingredientInDb.foodgroups.append(fg)
+            fg.ingredients.append(ingredientInDb)
+            session.commit()
 
 check_recipes = session.query(Recipe).all()
 for recipe in check_recipes:

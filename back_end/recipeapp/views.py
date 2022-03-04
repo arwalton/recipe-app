@@ -60,10 +60,13 @@ def ingredientsAndFoodgroupsJSON():
     ingredients = session.query(Ingredient).all()
     result = {"ingredients": []}
     for ingredient in ingredients:
-        foodgroup = session.query(FoodGroup).filter(FoodGroup.ingredients.any(id=ingredient.id)).one()
-        result.add({
+        foodgroups = session.query(FoodGroup).filter(FoodGroup.ingredients.any(id=ingredient.id)).all()
+        current_foodgroups = []
+        for fg in foodgroups:
+            current_foodgroups.append(fg.name)
+        result["ingredients"].append({
             "id": ingredient.id,
-            "foodgroup": foodgroup.name,
+            "foodgroup": current_foodgroups,
             "name": ingredient.name
         })
     return result
