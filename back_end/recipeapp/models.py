@@ -8,6 +8,8 @@ from sqlalchemy.pool import StaticPool
 
 Base = declarative_base()
 
+# Relationship tables (many-to-many)
+
 ingredient_substutite = Table (
     'ingredient_substitute', Base.metadata,
     Column('ingredient_id', Integer, ForeignKey('ingredient.id'), index=True),
@@ -29,6 +31,8 @@ ingredient_foodgroup = Table('ingredient_foodgroup', Base.metadata,
     Column('ingredient_id', ForeignKey('ingredient.id'), primary_key=True),
     Column('foodgroup_id', ForeignKey('foodgroup.id'), primary_key=True)
 )
+
+# Base tables
 
 class Recipe(Base):
     __tablename__ = 'recipe'

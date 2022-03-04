@@ -40,6 +40,7 @@ for category in data["categories"]:
     session.add(newCategory)
     session.commit()
 
+# check categories
 check_categories = session.query(Category).all()
 for cat in check_categories:
     print(cat.name)
@@ -55,6 +56,7 @@ for food_group in data["food_groups"]:
     session.add(newFoodGroup)
     session.commit()
 
+# check foodgroups
 check_foodgroups = session.query(FoodGroup).all()
 for group in check_foodgroups:
     print(group.name)
@@ -74,12 +76,15 @@ for recipe in data["recipes"]:
     session.add(new_recipe)
     session.commit()
 
+    # for each category in recipe
     for categoryName in recipe["categories"]:
+        # check if category is added to database
         if categoryName not in category_set:
             category_set.add(categoryName)
             newCategory = Category(name=categoryName, picture=placeholder_url)
             session.add(newCategory)
             session.commit()
+        # create relationships: recipe-category
         category = session.query(Category).filter_by(name=categoryName).one()
         category.recipes.append(new_recipe)
         new_recipe.categories.append(category)
@@ -96,26 +101,30 @@ for recipe in data["recipes"]:
             session.add(ingredientInDb)
             session.commit()
         else:
-            # already added ingridient before -> query it from DB
+            # already added ingredient before -> query it from DB
             ingredientInDb = session.query(Ingredient).filter_by(name=ingredientName).one()
-        # ingredientInDb (from both cases above)
+        # create relationships: ingredient-recipe
         ingredientInDb.recipes.append(new_recipe)
         new_recipe.ingredients.append(ingredientInDb)
         session.commit()
+        # check if foodgroup is already in db
         if ingredient["food_group"] not in foodgroup_set:
             newFoodGroup = FoodGroup(name=ingredient["food_group"], picture=placeholder_url)
             session.add(newFoodGroup)
             session.commit()
+        # create relationships: foodgroup-ingredient
         current_food_groups = session.query(FoodGroup).filter_by(name=ingredient["food_group"]).all()
         for fg in current_food_groups:
             ingredientInDb.foodgroups.append(fg)
             fg.ingredients.append(ingredientInDb)
             session.commit()
 
+# check recipes in database
 check_recipes = session.query(Recipe).all()
 for recipe in check_recipes:
     print(recipe.name)
 
+# check ingredients in database
 check_ingredients = session.query(Ingredient).all()
 for ingredient in check_ingredients:
     print(ingredient.name)
@@ -131,12 +140,14 @@ for sub in data["substitutes"]:
     print(sub["i1"] + ' - ' + sub["i2"])
     current_ingredient = sub["i1"]
 
+    # check if ingredient is already in db
     if current_ingredient not in ingredients_set:
             ingredients_set.add(current_ingredient)
             ingredientInDb = Ingredient(name=current_ingredient, picture=placeholder_url)
             session.add(ingredientInDb)
             session.commit()
 
+    # check if substitute is in db
     if(sub["i2"] not in ingredients_set):
         ingredients_set.add(sub["i2"])
         ingredientInDb = Ingredient(name=sub["i2"], picture=placeholder_url)
@@ -151,20 +162,17 @@ for sub in data["substitutes"]:
             session.add(ingredientInDb)
             session.commit()
 
-    print(current_substitute.name)
-
+    # create realtionships: ingredient-ingredient
     ingredientInDB = session.query(Ingredient).filter_by(name=current_ingredient).one()
-    print(ingredientInDB.name)
     ingredientInDb.substitutes.append(current_substitute)
     session.commit()
 
+    # switch ingredients and create second pair of substitutes
     current_ingredient = sub["i2"]
-    print(current_ingredient)
     ingredientInDB = session.query(Ingredient).filter_by(name=current_ingredient).one()
     current_substitute = session.query(Ingredient).filter_by(name=sub["i1"]).one()
     ingredientInDb.substitutes.append(current_substitute)
     session.commit()
-
 
 # Closing file
 f.close()
