@@ -93,14 +93,14 @@ class FilterableIngredientsList extends React.Component{
         //This is where the first call to the server will be
 
         const axios = require('axios');
-        const url = "http://localhost:5006/ingredients/JSON";
+        const url = "http://localhost:5006/ingredients/all/JSON";
         axios.get(url, {
           headers: {
             "Content-Type": "application/json",
           },
         })
           .then(res => {
-          recipeStore.setIngredients(res.data.Ingredients);
+          recipeStore.setIngredients(res.data.ingredients);
         })
 
         //Filter text
