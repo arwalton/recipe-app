@@ -76,6 +76,7 @@ for recipe in data["recipes"]:
 
     for categoryName in recipe["categories"]:
         if categoryName not in category_set:
+            category_set.add(categoryName)
             newCategory = Category(name=categoryName, picture=placeholder_url)
             session.add(newCategory)
             session.commit()
@@ -135,6 +136,11 @@ for sub in data["substitutes"]:
             session.add(ingredientInDb)
             session.commit()
 
+    if(sub["i2"] not in ingredients_set):
+        ingredients_set.add(sub["i2"])
+        ingredientInDb = Ingredient(name=sub["i2"], picture=placeholder_url)
+        session.add(ingredientInDb)
+        session.commit()
     current_substitute = session.query(Ingredient).filter_by(name=sub["i2"]).one()
     current_substitute_name = sub["i2"]
 
@@ -152,6 +158,7 @@ for sub in data["substitutes"]:
     session.commit()
 
     current_ingredient = sub["i2"]
+    print(current_ingredient)
     ingredientInDB = session.query(Ingredient).filter_by(name=current_ingredient).one()
     current_substitute = session.query(Ingredient).filter_by(name=sub["i1"]).one()
     ingredientInDb.substitutes.append(current_substitute)

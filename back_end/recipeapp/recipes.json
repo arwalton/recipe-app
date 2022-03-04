@@ -19,6 +19,18 @@
         {
             "name": "Gluten-free",
             "picture": "url"
+        },
+        {
+            "name": "Seafood",
+            "picture": "url"
+        },
+        {
+            "name": "Veggie",
+            "picture": "url"
+        },
+        {
+            "name": "Quick",
+            "picture": "url"
         }
     ],
     "food_groups": [
@@ -43,7 +55,7 @@
             "picture": "url"
         },
         {
-            "name": "Aromatics & Spices",
+            "name": "Spices",
             "picture": "url"
         },
         {
@@ -57,32 +69,48 @@
         {
             "name": "Condiments",
             "picture": "url"
+        },
+        {
+            "name": "Proteins",
+            "picture": "url"
         }
     ],
     "substitutes": [
         {
-            "i1": "ingredient_1",
-            "i2": "ingredient_2"
+            "i1": "Beef Sirloin Tips",
+            "i2": "Tofu"
         },
         {
-            "i1": "ingredient_2",
-            "i2": "ingredient_5"
+            "i1": "Basmati Rice",
+            "i2": "White Rice"
         },
         {
-            "i1": "ingredient_2",
-            "i2": "ingredient_3"
+            "i1": "Chicken Breast Strips",
+            "i2": "Tofu"
         },
         {
-            "i1": "ingredient_3",
-            "i2": "ingredient_1"
+            "i1": "Ground Pork",
+            "i2": "Ground Turkey"
         },
         {
-            "i1": "ingredient_2",
-            "i2": "ingredient_1"
+            "i1": "Cod Fillets",
+            "i2": "Chicken Breast"
         },
         {
-            "i1": "ingredient_4",
-            "i2": "ingredient_5"
+            "i1": "Monterey Jack Cheese",
+            "i2": "Any Cheese"
+        },
+        {
+            "i1": "Jasmine Rice",
+            "i2": "Any Rice or Grain"
+        },
+        {
+            "i1": "Yukon Gold Potatoes",
+            "i2": "Any Potatoes"
+        },
+        {
+            "i1": "Mozzarella Cheese",
+            "i2": "Any Cheese"
         }
     ],
     "recipes": [
@@ -120,7 +148,7 @@
                 },
                 {
                     "name": "Ginger",
-                    "food_group": "Aromatics & Spices",
+                    "food_group": "Spices",
                     "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/ingredient/555a37dbf8b25e15458b4567-b313ebe1.png",
                     "amount": "1 thumb"
                 },
@@ -132,7 +160,7 @@
                 },
                 {
                     "name": "Sesame Seeds",
-                    "food_group": "Condiments & Spices",
+                    "food_group": "Condiments",
                     "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/ingredient/5566d4044dab7152078b456a-e9370f1c.png",
                     "amount": "1 tablespoon"
                 },
@@ -151,52 +179,394 @@
             ]
         },
         {
-            "name": "recipe2",
-            "picture": "url",
-            "description": "description",
-            "source": "https://www.google.com",
-            "author": "AU",
-            "categories": [ "category_name_4"],
+            "name": "Chicken Bulgogi Bowls",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/5d8123f89f92a815ec07f6f9-427f6d15.jpg",
+            "description": "If you’re a fan of our beef bulgogi bowl, then you’ll love this chicken rendition. It’s just as sweet, savory, tangy, and delicious—but it features crispy, pan-seared pieces of chicken instead of ground beef. The chicken is finished in the same signature sesame-and-soy-spiked concoction known as bulgogi sauce (cue the swoons). There’s also quick-pickled cucumber ribbons, tender shredded carrots, and a spicy sriracha crema all arranged over a bed of fluffy white rice. Dig in!",
+            "source": "https://www.hellofresh.com/recipes/chicken-bulgogi-bowl-5d8123f89f92a815ec07f6f9",
+            "author": "HF",
+            "categories": [ "Dinner", "Family Friendly", "Easy prep"],
             "ingredients": [
                 {
-                    "name": "ingredient_2",
-                    "food_group": "group_name_3",
-                    "picture": "url",
-                    "amount": "1 thumb"
+                    "name": "Zucchini",
+                    "food_group": "Vegetable",
+                    "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/ingredient/5553981df8b25e5d0c8b456a-9ada5be3.png",
+                    "amount": "1 unit"
                 },
                 {
-                    "name": "ingredient_1",
-                    "food_group": "group_name_1",
+                    "name": "Ginger",
+                    "food_group": "Vegetables",
+                    "picture": "https://img.hellofresh.com/f_auto,fl_lossy,h_140,q_auto,w_140/hellofresh_s3/image/554a35914dab71716c8b4569.png",
+                    "amount": "1 unit"
+                },
+                {
+                    "name": "Chicken Breast Strips",
+                    "food_group": "Meats",
+                    "picture": "",
+                    "amount": "10 ounce"
+                },
+                {
+                    "name": "Sour Cream",
+                    "food_group": "Condiments",
+                    "picture": "",
+                    "amount": "4 tablespoon"
+                },
+                {
+                    "name": "Whine Wine Vinegar",
+                    "food_group": "Condiments",
+                    "picture": "",
+                    "amount": "5 teaspoons"
+                },
+                {
+                    "name": "Carrots",
+                    "food_group": "Vegetables",
+                    "picture": "",
+                    "amount": "4 ounce"
+                },
+                {
+                    "name": "Bulgogi Sause",
+                    "food_group": "Condiments",
+                    "picture": "",
+                    "amount": "4 ounce"
+                },
+                {
+                    "name": "Sriracha",
+                    "food_group": "Condiments",
+                    "picture": "",
+                    "amount": "1 teaspoon"
+                }
+            ]
+        },
+        {
+            "name": "Pork Teriyaki Meatballs",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/pork-bulgogi-meatballs-1bfe2d9f.jpg",
+            "description": "Do you love meatballs but aren’t sure how to take them beyond the usual? Say hello to bulgogi, a Korean-style sauce that knows what’s up. Based around soy sauce, it has savory complexity for sophisticated palates, plus just enough sweetness to round things out. In this recipe, it’s used to glaze pork meatballs, giving them an outer layer of extra flavor that pairs perfectly with the sesame-accented rice, carrots, and zucchini.",
+            "source": "https://www.hellofresh.com/recipes/pork-bulgogi-meatballs-5d6e72f231442e00166a165a",
+            "author": "HF",
+            "categories": [ "Dinner", "Family Friendly" ],
+            "ingredients": [
+                {
+                    "name": "Zucchini",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Lime",
+                    "food_group": "Fruits",
+                    "picture": "url"
+                },
+                {
+                    "name": "Scallions",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Ginger",
+                    "food_group": "Spices",
+                    "picture": "url"
+                },
+                {
+                    "name": "Ground Pork",
+                    "food_group": "Meats",
+                    "picture": "url"
+                },
+                {
+                    "name": "Panko Breadcrumbs",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                },
+                {
+                    "name": "Teriyaki Sauce",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                },
+                {
+                    "name": "Shredded Carrots",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Sesame Oil",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                },
+                {
+                    "name": "Jasmine Rice",
+                    "food_group": "Grains",
+                    "picture": "url"
+                },
+                {
+                    "name": "Sriracha",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                },
+                {
+                    "name": "Sesame Seeds",
+                    "food_group": "Condiments",
                     "picture": "url"
                 }
             ]
         },
         {
-            "name": "recipe3",
-            "picture": "url",
-            "description": "description",
-            "source": "https://www.google.com",
-            "author": "AU",
-            "categories": [ "category_name_1", "category_name_3" ],
+            "name": "Parmesan-Crusted Cod",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/parmesan-crusted-cod-dc9a79c2.jpg",
+            "description": "So you think you're fancy, huh? Well, here’s a recipe for you: this elegant cod recipe is worthy of the upper crust, literally. The fish fillets are topped with an herbed panko and Parmesan crust that gets nicely browned in the oven. It looks pretty highfalutin, but really, making it is as easy as can be.",
+            "source": "https://www.hellofresh.com/recipes/parmesan-crusted-cod-585038979f236a62f0410652",
+            "author": "HF",
+            "categories": [ "Dinner", "Seafood" ],
             "ingredients": [
                 {
-                    "name": "ingredient_3",
-                    "food_group": "group_name_2",
+                    "name": "Cod Fillets",
+                    "food_group": "Poultry",
                     "picture": "url"
                 },
                 {
-                    "name": "ingredient_1",
-                    "food_group": "group_name_1",
+                    "name": "Yukon Gold Potatoes",
+                    "food_group": "Vegetables",
                     "picture": "url"
                 },
                 {
-                    "name": "ingredient_5",
-                    "food_group": "group_name_2",
+                    "name": "Carrots",
+                    "food_group": "Vegetables",
                     "picture": "url"
                 },
                 {
-                    "name": "ingredient_6",
-                    "food_group": "group_name_1",
+                    "name": "Lemon",
+                    "food_group": "Fruits",
+                    "picture": "url"
+                },
+                {
+                    "name": "Garlic",
+                    "food_group": "Spices",
+                    "picture": "url"
+                },
+                {
+                    "name": "Parsley",
+                    "food_group": "Spices",
+                    "picture": "url"
+                },
+                {
+                    "name": "Dried Oregano",
+                    "food_group": "Spices",
+                    "picture": "url"
+                },
+                {
+                    "name": "Panko Breadcrumbs",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                },
+                {
+                    "name": "Parmesan Cheese",
+                    "food_group": "Dairy",
+                    "picture": "url"
+                }
+            ]
+        },
+        {
+            "name": "Balsamic Caprese Flatbread",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/balsamic-caprese-flatbread-5d33432f.jpg",
+            "description": "Did you know that Ancient Romans ate arugula for good luck? Hmm, and all this time we’ve just been enjoying this leafy green because it’s delicious! We especially love fresh arugula as a topping on these flatbreads; its peppery bite is a great match for all the other ingredients like sweet red pepper spread, melty mozz, and garlic-marinated tomato. The balsamic glaze drizzled on top adds a tangy sweetness that’s just chef’s kiss. Those Romans must’ve been onto something because we’re definitely feeling lucky to have this for dinner!",
+            "source": "https://www.hellofresh.com/recipes/balsamic-caprese-flatbread-621e89e0fda2615c364c54ba2",
+            "author": "HF",
+            "categories": [ "Easy Prep", "Veggie", "Breakfast" ],
+            "ingredients": [
+                {
+                    "name": "Roma Tomato",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Garlic",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Flatbreads",
+                    "food_group": "Grains",
+                    "picture": "url"
+                },
+                {
+                    "name": "Arugula",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Roasted Red Pepper Hummus",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                },
+                {
+                    "name": "Mozzarella Cheese",
+                    "food_group": "Dairy",
+                    "picture": "url"
+                },
+                {
+                    "name": "Balsamic Glaze",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                }
+            ]
+        },
+        {
+            "name": "Prosciutto Croque Madame Sandwiches",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/prosciutto-croque-madame-sandwiches-caff3e91.jpg",
+            "description": "We’re somewhat embarrassed to admit that we thought croque madame got its name because it’s simply a croque monsieur with an egg. It’s actually because the fried egg on top resembles a lady’s wide-brimmed hat (lightbulb moment!). Traditionally, these hot sandwiches are made with ham, Gruyère, and bechamel on slices of French white bread. Here, our chefs add a decidedly global spin, baking prosciutto, gouda, and Parmesan with a Dijon cream sauce on sourdough until the bread is crisp and the cheese is bubbling. With the added bonus of a fried egg, it's an indelible comfort—perfect for a cozy lunch or brunch.",
+            "source": "https://www.hellofresh.com/recipes/prosciutto-croque-madame-sandwiches-621fd81428cf2500281fe376",
+            "author": "HF",
+            "categories": [ "Easy Prep", "Breakfast" ],
+            "ingredients": [
+                {
+                    "name": "Chives",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Cream Cheese",
+                    "food_group": "Dairy",
+                    "picture": "url"
+                },
+                {
+                    "name": "Dijon Mustard",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                },
+                {
+                    "name": "Sourdough Bread",
+                    "food_group": "Grains",
+                    "picture": "url"
+                },
+                {
+                    "name": "Gouda Cheese",
+                    "food_group": "Dairy",
+                    "picture": "url"
+                },
+                {
+                    "name": "Eggs",
+                    "food_group": "Proteins",
+                    "picture": "url"
+                },
+                {
+                    "name": "Parmesan Cheese",
+                    "food_group": "Dairy",
+                    "picture": "url"
+                },
+                {
+                    "name": "Prosciutto",
+                    "food_group": "Meats",
+                    "picture": "url"
+                }
+            ]
+        },
+        {
+            "name": "Cheesy Breakfast Tacos",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/6216a58e66d91b349f5def60-b3ad8548.jpg",
+            "description": "We firmly believe that tacos have a place at every meal, which is why we’re over the moon about this brunchy version. You’ll stuff buttery scrambled eggs into warm, cheesy tortillas, then top them with a refreshing, homemade pico de gallo that couldn’t be easier to throw together. Squeeze with lime, then drizzle with smoky red pepper crema to your heart’s content. Taco-’bout a brunch win.",
+            "source": "https://www.hellofresh.com/recipes/cheesy-breakfast-tacos-6216a58e66d91b349f5def60",
+            "author": "HF",
+            "categories": [ "Easy Prep", "Breakfast" ],
+            "ingredients": [
+                {
+                    "name": "Red Onion",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Long Green Pepper",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Roma Tomato",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Cilantro",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Lime",
+                    "food_group": "Fruits",
+                    "picture": "url"
+                },
+                {
+                    "name": "Southwest Spice Blend",
+                    "food_group": "Spices",
+                    "picture": "url"
+                },
+                {
+                    "name": "Eggs",
+                    "food_group": "Proteins",
+                    "picture": "url"
+                },
+                {
+                    "name": "Flour Tortillas",
+                    "food_group": "Grains",
+                    "picture": "url"
+                },
+                {
+                    "name": "Monterey Jack Cheese",
+                    "food_group": "Dairy",
+                    "picture": "url"
+                },
+                {
+                    "name": "Sour Cream",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                },
+                {
+                    "name": "Smoked Paprika",
+                    "food_group": "Spices",
+                    "picture": "url"
+                }
+            ]
+        },
+        {
+            "name": "Bulgogi Chicken Tacos",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/5eb07c2a4a2beb526d171294-401b7d2f.jpg",
+            "description": "Korean and Mexican flavors may seem like they’re at opposite ends of the culinary spectrum. But when they meet in the middle, the results are absolutely delicious. These mashup tacos feature chicken in bulgogi sauce—a Korean-style marinade of soy sauce and sesame with a little bit of sweetness. When you tuck that into tortillas with cabbage, pickled cucumber, and a spicy crema, it feels like a border-hopping celebration in your mouth.",
+            "source": "https://www.hellofresh.com/recipes/bulgogi-chicken-thigh-tacos-5eb07c2a4a2beb526d171294",
+            "author": "HF",
+            "categories": [ "Quick", "Lunch" ],
+            "ingredients": [
+                {
+                    "name": "Persian Cucumber",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Shredded Red Cabbage",
+                    "food_group": "Vegetables",
+                    "picture": "url"
+                },
+                {
+                    "name": "Chicken Breast Strips",
+                    "food_group": "Poultry",
+                    "picture": "url"
+                },
+                {
+                    "name": "White Wine Vinegar",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                },
+                {
+                    "name": "Bulgogi Sauce",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                },
+                {
+                    "name": "Sour Cream",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                },
+                {
+                    "name": "Sriracha",
+                    "food_group": "Condiments",
+                    "picture": "url"
+                },
+                {
+                    "name": "Flour Tortillas",
+                    "food_group": "Grains",
                     "picture": "url"
                 }
             ]

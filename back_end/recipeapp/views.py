@@ -58,7 +58,7 @@ def ingredientsJSON():
 @app.route('/ingredients/all/JSON')
 def ingredientsAndFoodgroupsJSON():
     ingredients = session.query(Ingredient).all()
-    result = {}
+    result = {"ingredients": []}
     for ingredient in ingredients:
         foodgroup = session.query(FoodGroup).filter(FoodGroup.ingredients.any(id=ingredient.id)).one()
         result.add({
@@ -69,37 +69,52 @@ def ingredientsAndFoodgroupsJSON():
     return result
 
 # List of recipes by ingredient
-@app.route('/getrecipes/JSON', methods=['POST'])
+@app.route('/get_recipes/JSON', methods=['POST'])
 def getRecipesByIngredient():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
+        # get json from request body
         json = request.get_json()
-        ingredients = json["ingredients"]
         result = {"recipes": []}
+
+        # parse ingredients from json
+        ingredients = json["ingredients"]
+        # save all ingredient names for future reference
         ingredientNames = []
         for ingredient in ingredients:
             ingredientName = ingredient["name"]
             ingredientNames.append(ingredientName)
 
+        # for every selected ingredient
         for ingredient in ingredients:
             ingredientName = ingredient["name"]
+            # search for matching recipes by ingredient name
             recipes = session.query(Recipe).filter(Recipe.ingredients.any(name=ingredientName)).all()
 
+            # for every recipe found
             for recipe in recipes:
+                # find all ingredients in the recipe
                 ingredients = session.query(Ingredient).filter(Ingredient.recipes.any(id=recipe.id)).all()
+                # create a list of ingredients for current recipe
                 ingredientsObj = []
+                # count percentage of selected ingredients in the recipe
                 match = 0
+                # create ingredient objects within the recipe
                 for ingredient in ingredients:
-                    foodgroup = session.query(FoodGroup).filter(FoodGroup.ingredients.any(id=ingredient.id)).one()
+                    # get a foodgroup for every ingredient
+                    # TODO: fix the foodgroup issue here
+                    foodgroup = session.query(FoodGroup).filter(FoodGroup.ingredients.any(name=ingredient.name)).all()
                     if ingredient.name in ingredientNames:
                         match = match + 1
-                    ingredientsObj.append({
+                    current_ingredient = {
                         "id": ingredient.id,
-                        "group": foodgroup.name,
+                        "group": [],
                         "name": ingredient.name
-                    })
-                print("match " + str(match))
-                print("ingredients " + str(len(ingredientsObj)))
+                    }
+                    for fg in foodgroup:
+                        current_ingredient["group"].append(fg.name)
+                    ingredientsObj.append(current_ingredient)
+
                 percentage = int(math.ceil(float(match) / len(ingredientsObj) * 100))
                 result['recipes'].append({
                     "id": recipe.id,
@@ -113,6 +128,18 @@ def getRecipesByIngredient():
     else:
         return 'Content-Type not supported!'
 
+@app.route('/get_foodgroup/JSON', methods=['POST'])
+def getFoodgroup():
+    content_type = request.headers.get('Content-Type')
+    if (content_type == 'application/json'):
+        json = request.get_json()
+        ingredient = json
+        foodgroups = session.query(FoodGroup).filter(FoodGroup.ingredients.any(name=ingredient["name"])).all()
+        result = {"foodgroups": []}
+        for fg in foodgroups:
+            result["foodgroups"].append(fg.name)
+        return result
+
 @app.route('/substitutes/JSON', methods=['POST'])
 def getSubstitutes():
     content_type = request.headers.get('Content-Type')
@@ -121,11 +148,10 @@ def getSubstitutes():
         ingredient = json
         print(ingredient)
         result = {
-                    "id": ingredient["id"],
                     "name": ingredient["name"],
                     "substitutes": []
                 }
-        substitutes = session.query(Ingredient).filter(Ingredient.substitutes.any(id=ingredient["id"])).all()
+        substitutes = session.query(Ingredient).filter(Ingredient.substitutes.any(id=ingredient["name"])).all()
         for s in substitutes:
             result["substitutes"].append({
                 "id": s.id,
