@@ -4,7 +4,7 @@ import '../styles/style.css';
 
 //IngredientsGroupList sends group and ingredients as a prop
 /**
- * @param group - A string representing the ingredient group
+ * @param foodgroup - A string representing the ingredient group
  * @param ingredients - An array of ingredient objects
  * @param filterText - A string of text used to filter ingredients
  * @param onIngredientChange - A function to pass to the Ingredient components
@@ -22,11 +22,11 @@ class IngredientList extends React.Component{
             if(ingredient.name.toLowerCase().indexOf(filterText) === -1){
                 return;
             }
-            if(ingredient.group === this.props.group || this.props.group === "Ingredients:"){
+            if(ingredient.foodgroup === this.props.foodgroup || this.props.foodgroup === "Ingredients:"){
                 INGREDIENTS.push(
                     <Ingredient
                         name={ingredient.name}
-                        group={ingredient.group}
+                        group={ingredient.foodgroup}
                         id={ingredient.id}
                         key={ingredient.id.toString()}
                         onIngredientChange={this.props.onIngredientChange}
@@ -38,7 +38,7 @@ class IngredientList extends React.Component{
 
         return(
         <div className={"card m-5"}>
-            <h2 className={"card-header is-size-3 pl-2"}>{this.props.group}</h2>
+            <h2 className={"card-header is-size-3 pl-2"}>{this.props.foodgroup}</h2>
             <div className={"card-content buttons"}>
                 {INGREDIENTS}
             </div>

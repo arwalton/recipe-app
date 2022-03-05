@@ -100,6 +100,7 @@ class FilterableIngredientsList extends React.Component{
           },
         })
           .then(res => {
+            console.log(res.data)
           recipeStore.setIngredients(res.data.ingredients);
         })
 
