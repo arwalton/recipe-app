@@ -17,29 +17,24 @@ class IngredientGroupList extends React.Component{
             let lastGroup = null;
             const SORTEDINGREDIENTS = JSON.parse(JSON.stringify([...this.props.ingredients]))
             SORTEDINGREDIENTS.sort((a,b)=> {
-                if(a.foodgroup < b.foodgroup) {return -1}
-                if(b.foodgroup > b.foodgroup) {return 1}
+                if(a.group < b.group) {return -1}
+                if(b.group > b.group) {return 1}
                 return 0
             });
 
-            console.log("SORTEDINGREDIENTS:\n" + SORTEDINGREDIENTS);
-
-            for(const ingredient of SORTEDINGREDIENTS){
-                console.log(ingredient.foodgroup);
-            }
         for(const ingredient of SORTEDINGREDIENTS){
-            if(ingredient.foodgroup !== lastGroup){
+            if(ingredient.group !== lastGroup){
                 GROUPS.push(
                     <IngredientList 
-                        foodgroup={ingredient.foodgroup}
+                        group={ingredient.group}
                         ingredients={SORTEDINGREDIENTS}
                         filterText={this.props.filterText}
-                        key={ingredient.foodgroup}
+                        key={ingredient.group}
                         onIngredientChange={this.props.onIngredientChange}
                         />
                 )
             }
-            lastGroup = ingredient.foodgroup;
+            lastGroup = ingredient.group;
         };
 
         return(
