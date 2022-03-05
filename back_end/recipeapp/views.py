@@ -87,7 +87,7 @@ def ingredientsAndFoodgroupsJSON():
                 current_foodgroup = fg.name
             result["ingredients"].append({
                 "id": ingredient.id,
-                "foodgroup": current_foodgroup,
+                "group": current_foodgroup,
                 "name": ingredient.name
             })
         response = result
