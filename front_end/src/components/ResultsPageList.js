@@ -68,7 +68,23 @@ class ResultsPageList extends React.Component{
         this.setState(state);
       });
       this.setState({recipes: recipeStore.getRecipes()});
+      
       //This is where the server call will live
+
+      // const axios = require("axios");
+      // const url = "http://localhost:5006"; // fill in correct url
+      // const body = recipeStore.getSelectedIngredients();
+      // console.log("body:\n" + body);
+      // axios.post(url, body, {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // })
+      // .then(res => {
+      //   console.log("res.body:\n" + res.body);
+      // })
+
+
       this.response = JSON.parse(this.text);
       recipeStore.setRecipes(this.response);
 
