@@ -79,6 +79,10 @@
             "picture": ""
         },
         {
+            "name": "Seafood",
+            "picture": ""
+        },
+        {
             "name": "Condiments",
             "picture": ""
         },
@@ -954,6 +958,81 @@
                 {
                     "name": "Milk",
                     "food_group": "Dairy",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Meatloaf Balsamico",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/balsamic-glazed-meatloaves-b0a2a140.jpg",
+            "description": "No matter which way you try to dress it up, a meatloaf is all about the meat. Which is why we’re adding little more than a few breadcrumbs to keep it moist and a smattering of balsamic ketchup glaze to keep things interesting. That’s all you really need (along with some green beans and mashed sweet potato) to emphasize the classic timelessness of this dish.",
+            "source": "https://www.hellofresh.com/recipes/balsamic-glazed-meatloaves-586bd88b7d69bf6ef569b832",
+            "author": "Hello Fresh",
+            "categories": [ "Gourmet", "Dinner" ],
+            "ingredients": [
+                {
+                    "name": "Ground Beef",
+                    "food_group": "Meats",
+                    "picture": ""
+                },
+                {
+                    "name": "Sweet Potato",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                },
+                {
+                    "name": "Green Beans",
+                    "food_group": "Vegetables",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Bacon & Scallop Mushroom Risotto",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/bacon-scallop-mushroom-risotto-7185e070.jpg",
+            "description": "Scallops love bacon and the feeling is mutual! And what better way to let this surf-and-turf romance blossom than on a bed of creamy mushroom risotto? Some of the crisped bacon is stirred into the risotto so you’ll get a little bit of smoky goodness in every bite. The sweet scallops served on top are seared and butter-basted so they’re extra luscious. Is it getting hot in here? No, just us?",
+            "source": "https://www.hellofresh.com/recipes/bacon-scallop-mushroom-risotto-621e852026358f0b2166280f",
+            "author": "Hello Fresh",
+            "categories": [ "Gourmet", "Breakfast" ],
+            "ingredients": [
+                {
+                    "name": "Bacon",
+                    "food_group": "Meats",
+                    "picture": ""
+                },
+                {
+                    "name": "Arborio Rice",
+                    "food_group": "Grains",
+                    "picture": ""
+                },
+                {
+                    "name": "Scallops",
+                    "food_group": "Seafood",
+                    "picture": ""
+                }
+            ]
+        },
+        {
+            "name": "Southwest Plant-Based Protein over Rice",
+            "picture": "https://img.hellofresh.com/c_fit,f_auto,fl_lossy,h_1100,q_auto,w_2600/hellofresh_s3/image/southwest-plant-based-protein-over-rice-11710d4e.jpg",
+            "description": "Craving all the tantalizing flavors and textures of a burrito bowl—minus the meat? Look no further. This version stars ground plant-based protein, which we crisp up in a hot pan for caramelized edges, then simmer with poblano, onion, and a bounty of seasonings until saucy. It’s all piled over cilantro-lime rice with tomato, pickled onion, and tangy lime crema. Now, who really needs the meat when you’ve got all that?",
+            "source": "https://www.hellofresh.com/recipes/southwest-plant-based-protein-over-rice-600700726ca5574ca84fa043",
+            "author": "Hello Fresh",
+            "categories": [ "Vegeterian", "Lunch" ],
+            "ingredients": [
+                {
+                    "name": "Ground Plant-Based Protein",
+                    "food_group": "Proteins",
+                    "picture": ""
+                },
+                {
+                    "name": "Jasmine Rice",
+                    "food_group": "Grains",
+                    "picture": ""
+                },
+                {
+                    "name": "Poblano Pepper",
+                    "food_group": "Vegetables",
                     "picture": ""
                 }
             ]
