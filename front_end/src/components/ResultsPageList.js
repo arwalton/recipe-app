@@ -5,6 +5,7 @@ import Recipe from "./Recipe";
 
 import '../styles/style.css';
 import recipeStore from "../stores/RecipeStore";
+import Ingredient from "./Ingredient";
 
 class ResultsPageList extends React.Component{
   constructor(props){
@@ -68,9 +69,31 @@ class ResultsPageList extends React.Component{
         this.setState(state);
       });
       this.setState({recipes: recipeStore.getRecipes()});
+      
       //This is where the server call will live
-      this.response = JSON.parse(this.text);
-      recipeStore.setRecipes(this.response);
+      const axios = require("axios");
+      const url = "http://localhost:5006/get_recipes/JSON";
+      const selectedIngredients = recipeStore.getSelectedIngredients();
+      const data = {
+        "ingredients": []
+      }
+      for(const ingredient of selectedIngredients){
+        data.ingredients = [...data.ingredients, {"name":ingredient.name}];
+      }
+      axios.post(url, JSON.stringify(data), {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then(res => {
+        console.log(res.data)
+        recipeStore.setRecipes(res.data)
+        console.log(recipeStore.getRecipes())
+      })
+
+
+      // this.response = JSON.parse(this.text);
+      // recipeStore.setRecipes(this.response);
 
 
     }

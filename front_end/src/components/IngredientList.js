@@ -44,7 +44,7 @@ class IngredientList extends React.Component{
 
         return(
         <div className={"card m-5"}>
-            <h2 className={"card-header is-size-3 pl-2"}>{group}</h2>
+            <h3 className={"card-header is-size-3 pl-2"}>{group}</h3>
             <div className={"card-content buttons"}>
                 {INGREDIENTS}
             </div>

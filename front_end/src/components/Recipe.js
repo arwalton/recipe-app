@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import IngredientList from "./IngredientList";
 
 /**
@@ -22,10 +23,24 @@ class Recipe extends React.Component{
             className={`
                         box
                         has-background-white-ter`}>
-                {/* <p>Percentage: {this.props.recipe.percentage} %</p> */}
-                <h2 className={"title is-2 pb-3"}>{this.props.recipe.name}</h2>
-                <h2 className={"subtitle"}>Author: {this.props.recipe.author}</h2>
-                <h2 className={"subtitle"}>Source: {this.props.recipe.source}</h2>
+                <div className={"columns is-vcentered"}>
+                    <div className={`recipe-percentage
+                                     has-text-centered
+                                     has-background-success
+                                     box
+                                     m-2
+                                     column 
+                                     is-one-fifth`}>{this.props.recipe.percentage}%</div>
+                    <h2 className={`title
+                                    has-text-centered
+                                    column
+                                    pb-3`}>{this.props.recipe.name}</h2>
+                </div>
+                <p className={"subtitle"}>Author: {this.props.recipe.author}</p>
+                <p className={"subtitle"}>Source: 
+                    <a href={this.props.recipe.source} target="_blank" rel="noreferrer"> {this.props.recipe.source}
+                    </a>
+                </p>
                 <IngredientList 
                     group={"Ingredients:"}
                     ingredients={this.props.recipe.ingredients}
