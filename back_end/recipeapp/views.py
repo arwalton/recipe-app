@@ -82,16 +82,15 @@ def ingredientsAndFoodgroupsJSON():
         # for all ingredients create json with foodgroups information
         for ingredient in ingredients:
             foodgroups = session.query(FoodGroup).filter(FoodGroup.ingredients.any(id=ingredient.id)).all()
-            current_foodgroups = []
+            current_foodgroup = ""
             for fg in foodgroups:
-                current_foodgroups.append(fg.name)
+                current_foodgroup = fg.name
             result["ingredients"].append({
                 "id": ingredient.id,
-                "foodgroup": current_foodgroups[0],
+                "foodgroup": current_foodgroup,
                 "name": ingredient.name
             })
         response = result
-        print(response)
     except:
         # if any exception -> return empty object
         response = {}
