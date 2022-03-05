@@ -87,10 +87,11 @@ def ingredientsAndFoodgroupsJSON():
                 current_foodgroups.append(fg.name)
             result["ingredients"].append({
                 "id": ingredient.id,
-                "foodgroup": current_foodgroups,
+                "foodgroup": current_foodgroups[0],
                 "name": ingredient.name
             })
         response = result
+        print(response)
     except:
         # if any exception -> return empty object
         response = {}
@@ -134,16 +135,17 @@ def getRecipesByIngredient():
                     for ingredient in ingredients:
                         # get a foodgroup for every ingredient
                         # TODO: fix the foodgroup issue here
-                        foodgroup = session.query(FoodGroup).filter(FoodGroup.ingredients.any(name=ingredient.name)).all()
+                        foodgroups = session.query(FoodGroup).filter(FoodGroup.ingredients.any(name=ingredient.name)).all()
+                        current_foodgroups = []
+                        for fg in foodgroups:
+                            current_foodgroups.append(fg.name)
                         if ingredient.name in ingredientNames:
                             match = match + 1
                         current_ingredient = {
                             "id": ingredient.id,
-                            "group": [],
+                            "group": current_foodgroups[0],
                             "name": ingredient.name
                         }
-                        for fg in foodgroup:
-                            current_ingredient["group"].append(fg.name)
                         ingredientsObj.append(current_ingredient)
                     # count percentage of selected ingredients in the recipe
                     percentage = int(math.ceil(float(match) / len(ingredientsObj) * 100))
@@ -161,6 +163,7 @@ def getRecipesByIngredient():
             response = 'Content-Type not supported!'
     except:
         # if any exception -> return empty object
+        print(Exception)
         response = {}
     return response
 
@@ -174,15 +177,13 @@ def getFoodgroup():
             json = request.get_json()
             ingredient = json
             # get foodgroups by ingredient
-            foodgroups = session.query(FoodGroup).filter(FoodGroup.ingredients.any(name=ingredient["name"])).all()
-            result = {"foodgroups": []}
-            for fg in foodgroups:
-                result["foodgroups"].append(fg.name)
-            response = result
+            foodgroup = session.query(FoodGroup).filter(FoodGroup.ingredients.any(name=ingredient["name"])).first()
+            response = {"foodgroups": foodgroup.name}
         else:
             response = 'Content-Type not supported!'
     except:
         # if any exception -> return empty object
+        print(Exception)
         response = {}
     return response
 
