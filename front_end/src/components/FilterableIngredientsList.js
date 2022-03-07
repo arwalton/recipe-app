@@ -86,13 +86,13 @@ class FilterableIngredientsList extends React.Component{
 
     componentDidMount(){
         localStorage.clear();
+        
         //Ingredients
         this.removeIngredientListener = recipeStore.addIngredientListener((state) => {
             this.setState({ingredients: state});
         })
-        this.setState({ingredients: recipeStore.getIngredients()});
-        //This is where the first call to the server will be
-
+        
+        //Initial server call to get complete ingredient list
         const axios = require('axios');
         const url = "http://localhost:5006/ingredients/all/JSON";
         axios.get(url, {
