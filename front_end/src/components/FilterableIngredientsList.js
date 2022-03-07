@@ -85,6 +85,7 @@ class FilterableIngredientsList extends React.Component{
       response = JSON.parse(this.text)
 
     componentDidMount(){
+        localStorage.clear();
         //Ingredients
         this.removeIngredientListener = recipeStore.addIngredientListener((state) => {
             this.setState({ingredients: state});

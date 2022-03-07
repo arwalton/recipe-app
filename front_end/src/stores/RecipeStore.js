@@ -57,6 +57,14 @@ class RecipeStore{
         for (const listener of this.selectedIngredientListeners){
             listener(this.state.selectedIngredients);
         }
+        localStorage.setItem('selectedIngredients', JSON.stringify(this.state.selectedIngredients));
+    }
+
+    setSelectedIngredients(state){
+        this.state.selectedIngredients = state;
+        for (const listener of this.selectedIngredientListeners){
+            listener(state);
+        }
     }
 
     getSelectedIngredients (state) {

@@ -68,7 +68,12 @@ class ResultsPageList extends React.Component{
       this.removeRecipeListener = recipeStore.addRecipeListener((state) => {
         this.setState(state);
       });
-      this.setState({recipes: recipeStore.getRecipes()});
+     // this.setState({recipes: recipeStore.getRecipes()});
+
+      if(localStorage.getItem('selectedIngredients') !== null){
+        console.log(localStorage.getItem('selectedIngredients'))
+        recipeStore.setSelectedIngredients(JSON.parse(localStorage.getItem("selectedIngredients")));
+      }
       
       //This is where the server call will live
       const axios = require("axios");
