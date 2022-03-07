@@ -21,77 +21,78 @@ class FilterableIngredientsList extends React.Component{
         this.handleSelectedIngredientsChange = this.handleSelectedIngredientsChange.bind(this);
     }
 
-//This a temporary stand-in for a server call
-    text = `{
-        "ingredients": [
-          {
-            "id": 1,
-            "group": "Protein",
-            "name": "Chicken"
-          },
-          {
-            "id": 3,
-            "group": "Protein",
-            "name": "Pork"
-          },
-          {
-            "id": 5,
-            "group": "Protein",
-            "name": "Eggs"
-          },
-          {
-            "id": 7,
-            "group": "Vegetable",
-            "name": "Kale"
-          },
-          {
-            "id": 9,
-            "group": "Vegetable",
-            "name": "Carrots"
-          },
-          {
-            "id": 12,
-            "group": "Fruit",
-            "name": "Mangos"
-          },
-          {
-            "id": 15,
-            "group": "Spices",
-            "name": "Garam Masala"
-          },
-          {
-            "id": 16,
-            "group": "Spices",
-            "name": "Basil"
-          },
-          {
-            "id": 17,
-            "group": "Spices",
-            "name": "Cayenne Pepper"
-          },
-          {
-            "id": 19,
-            "group": "Bread, Rice, and Grains",
-            "name": "White Rice"
-          },
-          {
-            "id": 21,
-            "group": "Bread, Rice, and Grains",
-            "name": "Spaghetti"
-          }
-        ]
-      }`
+// //This a temporary stand-in for a server call
+//     text = `{
+//         "ingredients": [
+//           {
+//             "id": 1,
+//             "group": "Protein",
+//             "name": "Chicken"
+//           },
+//           {
+//             "id": 3,
+//             "group": "Protein",
+//             "name": "Pork"
+//           },
+//           {
+//             "id": 5,
+//             "group": "Protein",
+//             "name": "Eggs"
+//           },
+//           {
+//             "id": 7,
+//             "group": "Vegetable",
+//             "name": "Kale"
+//           },
+//           {
+//             "id": 9,
+//             "group": "Vegetable",
+//             "name": "Carrots"
+//           },
+//           {
+//             "id": 12,
+//             "group": "Fruit",
+//             "name": "Mangos"
+//           },
+//           {
+//             "id": 15,
+//             "group": "Spices",
+//             "name": "Garam Masala"
+//           },
+//           {
+//             "id": 16,
+//             "group": "Spices",
+//             "name": "Basil"
+//           },
+//           {
+//             "id": 17,
+//             "group": "Spices",
+//             "name": "Cayenne Pepper"
+//           },
+//           {
+//             "id": 19,
+//             "group": "Bread, Rice, and Grains",
+//             "name": "White Rice"
+//           },
+//           {
+//             "id": 21,
+//             "group": "Bread, Rice, and Grains",
+//             "name": "Spaghetti"
+//           }
+//         ]
+//       }`
     
-      response = JSON.parse(this.text)
+//       response = JSON.parse(this.text)
 
     componentDidMount(){
+        localStorage.clear();
+
         //Ingredients
         this.removeIngredientListener = recipeStore.addIngredientListener((state) => {
             this.setState({ingredients: state});
         })
-        this.setState({ingredients: recipeStore.getIngredients()});
-        //This is where the first call to the server will be
-
+        
+        //Initial server call to get complete ingredient list
         const axios = require('axios');
         const url = "http://localhost:5006/ingredients/all/JSON";
         axios.get(url, {

@@ -16,59 +16,64 @@ class ResultsPageList extends React.Component{
   }
 
 
-  //This is a temporary stand-in for a server call
-    text = `{
-        "recipes": [
-          {
-            "id": 1234,
-            "name": "Awesome Meal",
-            "source": "food.com",
-            "author": "Chef Charlie",
-            "link": "https://www.food.com/chef-charlie/awesome-meal",
-            "percentage": 83,
-            "ingredients": [
-              {
-                "id": 1,
-                "group": "Protein",
-                "name": "Chicken"
-              },
-              {
-                "id": 15,
-                "group": "Spices",
-                "name": "Garam Masala"
-              }
-            ]
-          },
-          {
-            "id": 5678,
-            "name": "Bad Meal",
-            "source": "food.com",
-            "author": "Chef Carrie",
-            "link": "https://www.food.com/chef-carrie/bad-meal",
-            "percentage": 29,
-            "ingredients": [
-              {
-                "id": 1,
-                "group": "Protein",
-                "name": "Chicken"
-              },
-              {
-                "id": 15,
-                "group": "Spices",
-                "name": "Garam Masala"
-              }
-            ]
-          }
-        ]
-    }`
+  // //This is a temporary stand-in for a server call
+  //   text = `{
+  //       "recipes": [
+  //         {
+  //           "id": 1234,
+  //           "name": "Awesome Meal",
+  //           "source": "food.com",
+  //           "author": "Chef Charlie",
+  //           "link": "https://www.food.com/chef-charlie/awesome-meal",
+  //           "percentage": 83,
+  //           "ingredients": [
+  //             {
+  //               "id": 1,
+  //               "group": "Protein",
+  //               "name": "Chicken"
+  //             },
+  //             {
+  //               "id": 15,
+  //               "group": "Spices",
+  //               "name": "Garam Masala"
+  //             }
+  //           ]
+  //         },
+  //         {
+  //           "id": 5678,
+  //           "name": "Bad Meal",
+  //           "source": "food.com",
+  //           "author": "Chef Carrie",
+  //           "link": "https://www.food.com/chef-carrie/bad-meal",
+  //           "percentage": 29,
+  //           "ingredients": [
+  //             {
+  //               "id": 1,
+  //               "group": "Protein",
+  //               "name": "Chicken"
+  //             },
+  //             {
+  //               "id": 15,
+  //               "group": "Spices",
+  //               "name": "Garam Masala"
+  //             }
+  //           ]
+  //         }
+  //       ]
+  //   }`
 
-    response = JSON.parse(this.text);
+  //   response = JSON.parse(this.text);
 
     componentDidMount(){
       this.removeRecipeListener = recipeStore.addRecipeListener((state) => {
         this.setState(state);
       });
-      this.setState({recipes: recipeStore.getRecipes()});
+     // this.setState({recipes: recipeStore.getRecipes()});
+
+      if(localStorage.getItem('selectedIngredients') !== null){
+        console.log(localStorage.getItem('selectedIngredients'))
+        recipeStore.setSelectedIngredients(JSON.parse(localStorage.getItem("selectedIngredients")));
+      }
       
       //This is where the server call will live
       const axios = require("axios");
