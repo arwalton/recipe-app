@@ -102,6 +102,12 @@ class FilterableIngredientsList extends React.Component{
         })
           .then(res => {
             recipeStore.setIngredients(res.data.ingredients);
+        }).catch((error) => {
+            if(error.response){
+                console.log(error.response)
+                console.log(error.response.status)
+                console.log(error.response.headers)
+            }
         })
 
         //Filter text
