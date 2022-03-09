@@ -43,7 +43,7 @@ def get_similarity_score_between_two_recipes(recipe_object_first, recipe_object_
 
     :param recipe_object_first:
     :param recipe_object_second:
-    :return:
+    :return: A similarity score between two recipes. (from 0 to 1) e.g. 0.234, 0.999, 1.0, etc.
     '''
     sum_of_similarity_ingredients = math.nan
     sum_of_score_count = 0
