@@ -22,8 +22,8 @@ import httplib2
 from flask import make_response
 
 import sys
-sys.path.append("./")
-from back_end.calculation_engine.similarity_calculator import calculate_similarity_score
+sys.path.append("../calculation_engine")
+from similarity_calculator import calculate_similarity_score
 
 # Create session, connect to db
 data = 'sqlite:///recipeapp.db'
