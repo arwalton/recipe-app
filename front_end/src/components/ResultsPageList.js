@@ -94,6 +94,12 @@ class ResultsPageList extends React.Component{
         console.log(res.data)
         recipeStore.setRecipes(res.data)
         console.log(recipeStore.getRecipes())
+      }).catch((error) => {
+          if(error.response){
+              console.log(error.response)
+              console.log(error.response.status)
+              console.log(error.response.headers)
+          }
       })
 
 
