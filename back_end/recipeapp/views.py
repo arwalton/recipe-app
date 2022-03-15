@@ -3,7 +3,7 @@ import random
 import string
 import math
 import json
-#from urllib import response
+# from urllib import response
 import requests
 
 from flask import Flask
@@ -21,6 +21,10 @@ from sqlalchemy.pool import StaticPool
 import httplib2
 from flask import make_response
 
+import sys
+sys.path.append("../calculation_engine")
+from similarity_calculator import calculate_similarity_score
+
 # Create session, connect to db
 data = 'sqlite:///recipeapp.db'
 engine = create_engine(data, connect_args={'check_same_thread': False}, poolclass=StaticPool)
@@ -29,7 +33,8 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 app = Flask(__name__, static_folder='static')
-CORS(app) # cross-origin requests
+CORS(app)  # cross-origin requests
+
 
 # API endpoints
 
@@ -45,6 +50,7 @@ def categoriesJSON():
         response = {}
     return response
 
+
 # List of food groups (JSON)
 @app.route('/foodgroups/JSON')
 def foodgroupsJSON():
@@ -56,6 +62,7 @@ def foodgroupsJSON():
         # if any exception -> return empty object
         response = {}
     return response
+
 
 # List of ingredients (no foodgroups)
 @app.route('/ingredients/JSON')
@@ -96,6 +103,7 @@ def ingredientsAndFoodgroupsJSON():
         response = {}
     return response
 
+
 # List of recipes by ingredient
 @app.route('/get_recipes/JSON', methods=['POST'])
 def getRecipesByIngredient():
@@ -110,6 +118,8 @@ def getRecipesByIngredient():
 
             # parse ingredients from json
             ingredients = json["ingredients"]
+            # Generate a space separated string of user-selected ingredients for calculate_similarity_score
+            user_selected_ingredients_string = ' '.join([ingredient["name"] for ingredient in ingredients])
             # save all ingredient names for future reference
             ingredientNames = []
             for ingredient in ingredients:
@@ -126,10 +136,12 @@ def getRecipesByIngredient():
                 for recipe in recipes:
                     # find all ingredients in the recipe
                     ingredients = session.query(Ingredient).filter(Ingredient.recipes.any(id=recipe.id)).all()
+                    # Generate a space separated string of filtered recipes for calculate_similarity_score
+                    recipe_ingredients_string = ' '.join([ingredient.name for ingredient in ingredients])
+                    # Generate similarity scores by calling calculate_similarity_score
+                    percentage = int(calculate_similarity_score(user_selected_ingredients_string, recipe_ingredients_string) * 100.)
                     # create a list of ingredients for current recipe
                     ingredientsObj = []
-                    # count percentage of selected ingredients in the recipe (initialize counter)
-                    match = 0
                     # create ingredient objects within the recipe
                     for ingredient in ingredients:
                         # get a foodgroup for every ingredient
@@ -138,16 +150,12 @@ def getRecipesByIngredient():
                         current_foodgroups = []
                         for fg in foodgroups:
                             current_foodgroups.append(fg.name)
-                        if ingredient.name in ingredientNames:
-                            match = match + 1
                         current_ingredient = {
                             "id": ingredient.id,
                             "group": current_foodgroups[0],
                             "name": ingredient.name
                         }
                         ingredientsObj.append(current_ingredient)
-                    # count percentage of selected ingredients in the recipe
-                    percentage = int(math.ceil(float(match) / len(ingredientsObj) * 100))
                     # create json
                     result['recipes'].append({
                         "id": recipe.id,
@@ -156,7 +164,7 @@ def getRecipesByIngredient():
                         "author": recipe.author,
                         "percentage": percentage,
                         "ingredients": ingredientsObj
-                    }) 
+                    })
             response = jsonify(result)
         else:
             response = 'Content-Type not supported!'
@@ -165,6 +173,7 @@ def getRecipesByIngredient():
         print(Exception)
         response = {}
     return response
+
 
 # List of of foodgroups for ingredient
 @app.route('/get_foodgroup/JSON', methods=['POST'])
@@ -186,6 +195,7 @@ def getFoodgroup():
         response = {}
     return response
 
+
 # List of substitutes
 @app.route('/substitutes/JSON', methods=['POST'])
 def getSubstitutes():
@@ -197,9 +207,9 @@ def getSubstitutes():
             ingredient = json
             print(ingredient)
             result = {
-                        "name": ingredient["name"],
-                        "substitutes": []
-                    }
+                "name": ingredient["name"],
+                "substitutes": []
+            }
             substitutes = session.query(Ingredient).filter(Ingredient.substitutes.any(id=ingredient["name"])).all()
             for s in substitutes:
                 result["substitutes"].append({
@@ -214,6 +224,7 @@ def getSubstitutes():
         response = {}
     return response
 
+
 # Additional endpoints for future development
 
 # List of ingredients by foodgroup id
@@ -225,6 +236,7 @@ def ingredientsInFoodgroupJSON(foodgroup_id):
     except:
         return {}
 
+
 # List of ingredients by recipe id
 @app.route('/recipes/<int:recipe_id>/ingredients/JSON')
 def ingredientsInRecipeJSON(recipe_id):
@@ -233,6 +245,7 @@ def ingredientsInRecipeJSON(recipe_id):
         return jsonify(Ingredients=[i.serialize for i in ingredients])
     except:
         return {}
+
 
 # List of all recipes (no ingredients)
 @app.route('/recipes/JSON')
@@ -243,6 +256,7 @@ def recipesJSON():
     except:
         return {}
 
+
 # List of recipes by category id
 @app.route('/categories/<int:category_id>/recipes/JSON')
 def recipesInCategoryJSON(category_id):
@@ -251,6 +265,7 @@ def recipesInCategoryJSON(category_id):
         return jsonify(Recipes=[i.serialize for i in recipes])
     except:
         return {}
+
 
 # Recipe by id (JSON)
 @app.route('/recipes/<int:recipe_id>/JSON')
