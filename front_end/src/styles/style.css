@@ -1,10 +1,6 @@
 .App {
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-      ),
-      url('../img/shrimp_dinner.jpg');
-    background-size: cover;
+    background-image: linear-gradient( rgba(53, 92, 65, 0.3), rgba(0, 0, 0, 0.5)), url('../img/cook.jpg');
+    background-size: 100%;
 }
 
 .filterable-ingredients-list {
@@ -12,8 +8,7 @@
 }
 
 .results-page-list {
-  padding: 50px;
-
+    padding: 50px;
 }
 
 nav {
@@ -23,26 +18,36 @@ nav {
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
 
 .main-text {
     font-size: 3rem;
     text-align: center;
-    color: hsla(0, 0%, 80%, 1);
+    color: rgb(255, 255, 255);
+}
+
+.recipe-info {
+    margin: 40px;
+    min-height: 400px;
+    padding-bottom: 50px;
 }
 
 .recipe-header {
-  padding-top: 200px;
+    padding-top: 200px;
+}
+
+.recipe-image {
+    height: 400px;
+    margin: 30px 20px 20px 0px;
+    border-radius: 3px;
+    float: left;
 }
 
 .search-bar {

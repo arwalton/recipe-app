@@ -160,6 +160,8 @@ def getRecipesByIngredient():
                     result['recipes'].append({
                         "id": recipe.id,
                         "name": recipe.name,
+                        "description": recipe.description,
+                        "picture": recipe.picture,
                         "source": recipe.url,
                         "author": recipe.author,
                         "percentage": percentage,
