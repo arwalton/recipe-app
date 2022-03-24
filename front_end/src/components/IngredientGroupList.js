@@ -22,6 +22,8 @@ class IngredientGroupList extends React.Component {
                     return 0
                 });
 
+                console.log(SORTEDINGREDIENTS);
+
                 for (const ingredient of SORTEDINGREDIENTS) {
                     if (ingredient.group !== lastGroup && ingredient.group !== "") {
                         GROUPS.push( <

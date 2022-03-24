@@ -146,11 +146,11 @@ class FilterableIngredientsList extends React.Component {
             What do you want to cook today ?
                 <
                 /h1> <
-                SearchBar / >
-                <
-                nav >
-                <
-                Link reloadDocument to = "/ingredients"
+            SearchBar / >
+            <
+            nav >
+            <
+            Link reloadDocument to = "/ingredients"
             className = {
                 "button is-large is-outlined " +
                 "has-background-success-dark " +
@@ -165,16 +165,17 @@ class FilterableIngredientsList extends React.Component {
                 "has-text-white-ter"
             } >
             Get results <
-            /Link> <
-            /nav> <
+            /Link> < /
+            nav > <
             SelectedIngredientList selections = { this.state.selectedIngredients }
             onIngredientChange = { this.handleSelectedIngredientsChange }
             /> <
             IngredientGroupList ingredients = { this.state.ingredients }
             filterText = { this.state.filterText }
             onIngredientChange = { this.handleSelectedIngredientsChange }
-            /> <
-            /div>
+            />  <
+            div className = "footer" > < p > (c) Recipe Finder App, 2022 < /p> < /div > < /
+            div >
         );
     }
 }
