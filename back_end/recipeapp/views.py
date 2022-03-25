@@ -139,11 +139,9 @@ def getRecipesByIngredient():
                     # Generate a space separated string of filtered recipes for calculate_similarity_score
                     recipe_ingredients_string = ' '.join([ingredient.name for ingredient in ingredients])
                     # Generate similarity scores by calling calculate_similarity_score
-                    # percentage = int(calculate_similarity_score(user_selected_ingredients_string, recipe_ingredients_string) * 100.)
+                    percentage = int(calculate_similarity_score(user_selected_ingredients_string, recipe_ingredients_string) * 100.)
                     # create a list of ingredients for current recipe
                     ingredientsObj = []
-                    # count percentage of selected ingredients in the recipe (initialize counter)
-                    match = 0
                     # create ingredient objects within the recipe
                     for ingredient in ingredients:
                         # get a foodgroup for every ingredient
@@ -152,16 +150,12 @@ def getRecipesByIngredient():
                         current_foodgroups = []
                         for fg in foodgroups:
                             current_foodgroups.append(fg.name)
-                        if ingredient.name in ingredientNames:
-                            match = match + 1
                         current_ingredient = {
                             "id": ingredient.id,
                             "group": current_foodgroups[0],
                             "name": ingredient.name
                         }
                         ingredientsObj.append(current_ingredient)
-                    # count percentage of selected ingredients in the recipe (using discrete value until we can fix calculator)
-                    percentage = int(math.ceil(float(match) / len(ingredientsObj) * 100))
                     # create json
                     result['recipes'].append({
                         "id": recipe.id,
